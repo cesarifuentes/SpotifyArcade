@@ -4,7 +4,7 @@ This web app lets you compete with your friends to see who knows each others mus
 
 ## Requirements
 
--
+- NodeJS v18.16.0
 
 ## How To Use
 
@@ -16,6 +16,7 @@ This web app lets you compete with your friends to see who knows each others mus
 2. Running the Client
 
    - `cd client`
+   - `npm install`
    - `npm start`
 
 3. [Launch the Client Local Browser](http://localhost:3000/)
@@ -24,3 +25,5 @@ This web app lets you compete with your friends to see who knows each others mus
 
 - [ ] Create a
 -
+
+https://stackoverflow.com/questions/34130539/uncaught-error-invariant-violation-element-type-is-invalid-expected-a-string
