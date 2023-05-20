@@ -5,29 +5,29 @@ import { informationCircle } from "ionicons/icons";
 
 function Login() {
   return (
-    <div id="login" class="page">
-      {/* <div>
-        <Link to={`tutorial/`}>Tutorial</Link>
-      </div> */}
-      <IonIcon class="info-icon" icon={informationCircle}>
-        <Link to={`tutorial/`}>Tutorial</Link>
-      </IonIcon>
-
-      <div class="center-abs">
+    <div class="page">
+      {/* Login Container */}
+      <div class="logo-box">
+        {/* Logo */}
         <img
-          class="logo selector"
+          class="logo-img immovable"
           src="/assets/images/spotify-match.png"
           alt="spotify-logo"
         />
-
-        <br />
-        <br />
+        {/* Login Button */}
         <Link to={`home/`}>
-          <button class="button green">
+          <button class="button medium green">
             <h5>Connect Your Account</h5>
           </button>
         </Link>
       </div>
+
+      {/* Help Button */}
+      <Link class="hidden" to={`tutorial/`}>
+        <button type="button">
+          <IonIcon class="info-icon" icon={informationCircle}></IonIcon>
+        </button>
+      </Link>
     </div>
   );
 }

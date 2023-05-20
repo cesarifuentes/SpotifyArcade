@@ -1,50 +1,72 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { IonIcon } from "@ionic/react";
+import { informationCircle } from "ionicons/icons";
 
 function Home() {
   return (
-    <div class="row">
-      <div class="column left">
-        <div class="center">
-          <img
-            class="logo selector"
-            src="/assets/images/spotify-match.png"
-            alt="profile-pic"
-          />
-          <br />
-          <br />
-          <Link to={`start/`}>
-            <button class="button green">
-              <h5>Start Party</h5>
-            </button>
-          </Link>
-          <br />
-          <Link to={`join/`}>
-            <button class="button white">
-              <h5>Join Party</h5>
-            </button>
-          </Link>
+    <div class="page ">
+      <div class="row">
+        {/* Column 1 */}
+        <div class="column">
+          <div class="stack">
+            {/* Logo */}
+            <img
+              class="logo-img immovable"
+              src="/assets/images/spotify-match.png"
+              alt="profile-pic"
+            />
+            <br />
+            {/* Buttons */}
+            <Link to={`start/`}>
+              <button class="button medium green">
+                <h5>Start Party</h5>
+              </button>
+            </Link>
+            <br />
+            <br />
+            <Link to={`join/`}>
+              <button class="button medium white">
+                <h5>Join Party</h5>
+              </button>
+            </Link>
+          </div>
+        </div>
+        {/* Column 2 */}
+        <div class="column">
+          <div class="stack">
+            <img
+              class="profile-img selector"
+              src="/assets/images/profile.jpg"
+              alt="spotify-logo"
+            />
+            <br />
+            <br />
+            <input
+              class="textbox"
+              type="text"
+              id="username"
+              name="username"
+              maxlength="10"
+              value="seazhur"
+            />
+          </div>
         </div>
       </div>
-      <div class="column right">
-        <div class="center">
-          <img
-            class="profile-pic selector"
-            src="/assets/images/profile.jpg"
-            alt="spotify-logo"
-          />
-          <br />
-          <br />
 
-          <input
-            class="textbox"
-            type="text"
-            id="username"
-            name="username"
-            maxlength="10"
-          />
-        </div>
-      </div>
+      {/* Logout Button */}
+      <Link class="hidden" to={`Login/`}>
+        <button class="button small white logout">
+          <h5>Log Out</h5>
+        </button>
+      </Link>
+
+      {/* Help Button */}
+      <Link class="hidden" to={`tutorial/`}>
+        <button type="button">
+          <IonIcon class="info-icon" icon={informationCircle}></IonIcon>
+        </button>
+      </Link>
     </div>
   );
 }

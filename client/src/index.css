@@ -1,43 +1,56 @@
+/* -------------------------------------------------------------------------- */
+/*                                    MAIN                                    */
+/* -------------------------------------------------------------------------- */
+
 :root {
   --green: #1db954;
   --button-radius: 30px;
 }
 
 html,
-body,
-root {
+body {
   background-color: black;
   color: #ffffff;
-  /* height: 100%;
-  min-height: 100%; */
-}
-
-* {
+  height: 100%;
   margin: 0;
   font-family: "asimov-regular", sans-serif;
   overflow: hidden;
 }
 
-/*///////////////////////////////////////////////*/
-/*//////////////////// LOGIN ////////////////////*/
-/*///////////////////////////////////////////////*/
-
-.logo {
-  width: 342px;
-  height: 117px;
+.selected1 {
+  border: 3px solid greenyellow;
+  background-color: rgba(188, 188, 188, 0.617);
 }
 
-.selector {
-  -webkit-user-drag: none;
-  user-select: none;
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
+.selected2 {
+  border: 3px solid orangered;
+  background-color: rgba(245, 53, 53, 0.81);
 }
 
-.center-abs {
+.selected3 {
+  background-color: rgb(223, 245, 53);
+}
+
+.selected4 {
+  background-color: rgb(146, 245, 53);
+}
+
+/* margin-left: auto; */
+/* margin-top: auto; */
+/* margin: auto 0; */
+
+/* -------------------------------------------------------------------------- */
+/*                                    LOGIN                                   */
+/* -------------------------------------------------------------------------- */
+
+.page {
+  height: calc(100vh - 120px);
+  margin: 60px;
+  position: relative;
+}
+
+.logo-box {
   width: 342px;
-  /* height: 187px; */
   position: absolute;
   top: 50%;
   left: 0;
@@ -47,19 +60,44 @@ root {
   text-align: center;
 }
 
+.logo-img {
+  width: 342px;
+  height: 117px;
+  margin-bottom: 30px;
+}
+
 .button {
-  /* background-color: var(--green); */
   border: none;
-  padding: 10px 30px;
-  width: 250px;
+  padding: 10px 50px;
   text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 20px;
-  margin: 4px 2px;
-  border-radius: var(--button-radius);
   cursor: pointer;
 }
+
+.immovable {
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+h5 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.button.small {
+  font-size: 15px;
+  border-radius: var(--button-radius);
+  padding: 10px 30px;
+}
+.button.medium {
+  font-size: 25px;
+  border-radius: var(--button-radius);
+}
+
+/* .button.large {
+} */
 
 .button.green {
   background-color: var(--green);
@@ -71,64 +109,55 @@ root {
   color: black;
 }
 
-.page {
-  border: 3px solid green;
-  margin: 60px;
+.hidden {
+  visibility: hidden;
 }
 
 .info-icon {
-  /* color: green; */
+  visibility: visible;
+  color: #ffffff;
+  display: block;
   width: 30px;
   height: 30px;
   position: absolute;
-  right: 0;
-  bottom: 0;
+  top: 0;
+  left: 0;
+  cursor: pointer;
 }
 
-/*///////////////////////////////////////////////*/
-/*//////////////////// HOME /////////////////////*/
-/*///////////////////////////////////////////////*/
-
-/* .left {
-  background-color: red;
-}
-
-.right {
-  background-color: blue;
-} */
+/* -------------------------------------------------------------------------- */
+/*                                    HOME                                    */
+/* -------------------------------------------------------------------------- */
 
 .row {
   display: flex;
+  /* Vertically Center */
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .column {
   flex: 50%;
-  height: 100vh;
+  height: 500px; /* calc(100vh - 500px); */
   display: table;
 }
 
-.center {
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 342px;
-  height: 300px;
-  border: 3px solid green; */
-
+.stack {
   display: table-cell;
   vertical-align: middle;
   text-align: center;
 }
 
-.profile-pic {
+.profile-img {
   border-radius: 50%;
   width: 200px;
   height: 200px;
-  overflow: hidden;
-  position: relative;
+  /* overflow: hidden; */
+  /* position: relative; */
   border-radius: 50%;
   border: 5px solid var(--green);
+  margin-bottom: 30px;
 }
 
 .textbox {
@@ -141,35 +170,13 @@ root {
   border-radius: var(--button-radius);
 }
 
-/*///////////////////////////////////////////////*/
-/*//////////////////// START ////////////////////*/
-/*///////////////////////////////////////////////*/
-
-/* .page {
-  margin: 60px;
-} */
-
-.title {
-  font-size: 70px;
-  /* font-family: "asimov-pro-bold"; */
-}
-
-/*///////////////////////////////////////////////*/
-/*///////////////////// JOIN ////////////////////*/
-/*///////////////////////////////////////////////*/
-
-select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  text-indent: 1px;
-  text-overflow: "";
-}
-
-.select-new {
-  padding: 15px 20px;
-  background: var(--green);
-  border: none;
-  color: #ffffff;
-  font-family: inherit;
-  border-radius: var(--button-radius);
+.logout {
+  visibility: visible;
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+  /* TODO:  */
+  /* font-size: 15px; */
 }
