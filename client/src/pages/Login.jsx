@@ -15,15 +15,15 @@ function Login() {
           alt="spotify-logo"
         />
         {/* Login Button */}
-        <Link to={`home/`}>
+        <Link to={`/home`}>
           <button class="button medium green">
-            <h5>Connect Your Account</h5>
+            <h5>Log In</h5>
           </button>
         </Link>
       </div>
 
       {/* Help Button */}
-      <Link class="invisible" to={`tutorial/`}>
+      <Link class="invisible" to={`/tutorial`}>
         <button type="button">
           <IonIcon class="info-icon" icon={informationCircle}></IonIcon>
         </button>

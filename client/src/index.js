@@ -1,13 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import "./index.css";
+import "./testing.css";
+import "./index.scss";
 import Layout from "./pages/Layout";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
 import Tutorial from "./pages/Tutorial";
 import ErrorPage from "./pages/ErrorPage";
 import Create from "./pages/Create";
+import Profile from "./pages/Profile";
+import Lobby from "./pages/Lobby";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +23,10 @@ const router = createBrowserRouter([
         path: "/tutorial", // contacts/:contactId
         element: <Tutorial />,
       },
+      // {
+      //   path: "/home/tutorial", // contacts/:contactId
+      //   element: <Tutorial />,
+      // },
       {
         path: "/home",
         element: <Home />,
@@ -27,6 +34,14 @@ const router = createBrowserRouter([
       {
         path: "/home/create",
         element: <Create />,
+      },
+      {
+        path: "/profile",
+        element: <Profile />,
+      },
+      {
+        path: "/home/create/lobby",
+        element: <Lobby />,
       },
     ],
   },

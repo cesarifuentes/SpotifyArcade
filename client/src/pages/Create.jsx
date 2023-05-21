@@ -103,9 +103,8 @@ function Create() {
         </div>
 
         {/* Button */}
-        <Link to={`/`}>
+        <Link to={`lobby/`}>
           {/* TODO: make into submit button */}
-          {/* TODO: lobby */}
           <button class="button large bottom-left green">
             <h5>Start Party</h5>
           </button>
