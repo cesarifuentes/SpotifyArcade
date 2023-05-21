@@ -6,8 +6,8 @@ import { informationCircle } from "ionicons/icons";
 function Home() {
   return (
     <div class="page">
-      <ul class="flex-container horiz-center">
-        <li class="flex-item selected3">
+      <ul class="flex-container-main horiz-center">
+        <li class="flex-item-main selected3">
           <img
             class="logo-img immovable"
             src="/assets/images/spotify-match.png"
@@ -28,12 +28,11 @@ function Home() {
         </li>
       </ul>
 
-      {/* Profile Picture */}
-
       <div class="navbar">
+        {/* Profile Picture */}
         <Link class="invisible" to={`/profile`}>
           <img
-            class="profile-img immovable navbar-element visible"
+            class="profile-img small immovable navbar-element visible"
             src="/assets/images/profile.jpg"
             alt="spotify-logo"
           />

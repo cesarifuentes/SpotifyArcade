@@ -27,3 +27,7 @@ This web app lets you compete with your friends to see who knows each others mus
 -
 
 https://stackoverflow.com/questions/34130539/uncaught-error-invariant-violation-element-type-is-invalid-expected-a-string
+
+https://codepen.io/alvarotrigo/pen/WNggKqz
+
+https://codepen.io/hylobates-lar/pen/qBbQeON
