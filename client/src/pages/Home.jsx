@@ -18,9 +18,9 @@ function Home() {
             />
             <br />
             {/* Buttons */}
-            <Link to={`start/`}>
+            <Link to={`create/`}>
               <button class="button medium green">
-                <h5>Start Party</h5>
+                <h5>Create Party</h5>
               </button>
             </Link>
             <br />
@@ -32,6 +32,8 @@ function Home() {
             </Link>
           </div>
         </div>
+        {/* Line Divider */}
+        <div class="divider"></div>
         {/* Column 2 */}
         <div class="column">
           <div class="stack">
@@ -48,21 +50,21 @@ function Home() {
               id="username"
               name="username"
               maxlength="10"
-              value="seazhur"
+              value="Cesar"
             />
           </div>
         </div>
       </div>
 
       {/* Logout Button */}
-      <Link class="hidden" to={`Login/`}>
+      <Link class="invisible" to={`Login/`}>
         <button class="button small white logout">
           <h5>Log Out</h5>
         </button>
       </Link>
 
       {/* Help Button */}
-      <Link class="hidden" to={`tutorial/`}>
+      <Link class="invisible" to={`tutorial/`}>
         <button type="button">
           <IonIcon class="info-icon" icon={informationCircle}></IonIcon>
         </button>

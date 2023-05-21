@@ -23,7 +23,7 @@ function Login() {
       </div>
 
       {/* Help Button */}
-      <Link class="hidden" to={`tutorial/`}>
+      <Link class="invisible" to={`tutorial/`}>
         <button type="button">
           <IonIcon class="info-icon" icon={informationCircle}></IonIcon>
         </button>
