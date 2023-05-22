@@ -59,13 +59,14 @@ function Lobby() {
         </Link>
       </div>
 
+      {/* TODO: change button color based on lobby fullness */}
       <Link to={`/`}>
         {/* TODO: make into submit button */}
         <button class="button large bottom-left green">
           <h5>Waiting...</h5>
         </button>
       </Link>
-      <Link to={`/`}>
+      <Link to={`/home`}>
         {/* TODO: make into submit button */}
         <button class="button large bottom-right red">
           <h5>Leave</h5>

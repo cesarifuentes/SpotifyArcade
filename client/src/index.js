@@ -9,6 +9,7 @@ import Home from "./pages/Home";
 import Tutorial from "./pages/Tutorial";
 import ErrorPage from "./pages/ErrorPage";
 import Create from "./pages/Create";
+import Join from "./pages/Join";
 import Profile from "./pages/Profile";
 import Lobby from "./pages/Lobby";
 
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
       {
         path: "/home/create",
         element: <Create />,
+      },
+      {
+        path: "/home/join",
+        element: <Join />,
       },
       {
         path: "/profile",

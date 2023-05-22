@@ -1,9 +1,28 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { IonIcon } from "@ionic/react";
-import { informationCircle } from "ionicons/icons";
 
 function Home() {
+  // Close the dropdown if the user clicks outside of it
+  window.onclick = function (event) {
+    // alert("closing");
+    if (!event.target.matches(".dropbtn")) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains("show")) {
+          openDropdown.classList.remove("show");
+        }
+      }
+    }
+  };
+
+  const myFunction = (e) => {
+    e.preventDefault();
+    // alert("opening");
+    document.getElementById("myDropdown").classList.toggle("show");
+  };
+
   return (
     <div class="page">
       <ul class="flex-container-main horiz-center">
@@ -28,23 +47,32 @@ function Home() {
         </li>
       </ul>
 
+      {/* TODO: put this on every page, layout.jsx */}
       <div class="navbar">
-        {/* Profile Picture */}
-        <Link class="invisible" to={`/profile`}>
+        <div class="dropdown">
+          {/* IMAGE */}
           <img
-            class="profile-img small immovable navbar-element visible"
+            class="profile-img small immovables dropbtn"
+            onClick={myFunction}
             src="/assets/images/profile.jpg"
             alt="spotify-logo"
           />
-        </Link>
-      </div>
+          {/* MENU */}
+          <div id="myDropdown" class="dropdown-content">
+            <Link class="" to={`/profile`}>
+              Profile
+            </Link>
 
-      {/* Help Button */}
-      <Link class="invisible" to={`/tutorial`}>
-        <button type="button">
-          <IonIcon class="info-icon" icon={informationCircle}></IonIcon>
-        </button>
-      </Link>
+            <Link class="" to={`/`}>
+              Settings
+            </Link>
+
+            <Link class="link top-separator" to={`/`}>
+              Log Out
+            </Link>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
