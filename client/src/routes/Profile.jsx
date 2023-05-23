@@ -36,7 +36,7 @@ function Profile() {
 
       <div class="navbar">
         {/* Profile Picture */}
-        <Link class="invisible" to={`/profile`}>
+        <Link class="invisible" to={`profile/`}>
           <img
             class="profile-img small immovable navbar-element visible"
             src="/assets/images/profile.jpg"
@@ -44,6 +44,13 @@ function Profile() {
           />
         </Link>
       </div>
+
+      {/* Return Button */}
+      <Link to={`/home`}>
+        <button class="button large bottom-right secondary">
+          <h3>HOME</h3>
+        </button>
+      </Link>
 
       {/*  */}
     </div>

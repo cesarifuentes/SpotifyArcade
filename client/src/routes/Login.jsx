@@ -11,13 +11,17 @@ function Login() {
         {/* Logo */}
         <img
           class="logo-img immovable"
-          src="/assets/images/spotify-match.png"
+          src="/assets/images/Spotify_Logo_RGB_Green.png"
           alt="spotify-logo"
         />
+        <br />
+        <h3>GAME ROOM</h3>
+        <br />
+        <br />
         {/* Login Button */}
         <Link to={`/home`}>
-          <button class="button medium green">
-            <h5>Log In</h5>
+          <button class="button medium primary">
+            <p>LOG IN</p>
           </button>
         </Link>
       </div>

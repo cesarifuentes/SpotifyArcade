@@ -5,7 +5,8 @@ import { Outlet } from "react-router-dom";
 const Layout = () => {
   return (
     <div>
-      {/* <Navbar /> */}
+      {/* TODO: add navbar <Navbar /> */}
+      {/* TODO: move page class here */}
       <Outlet />
     </div>
   );

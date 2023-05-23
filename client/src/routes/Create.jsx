@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 function Create() {
   return (
     <div class="page">
-      <div class="title">Create a Party</div>
+      <h1>Create a Party</h1>
       <br />
       <br />
       <form>
-        <h2>Players</h2>
+        <h3>Players</h3>
         <div class="radio-wrap">
           <input
             class="hidden radio-label"
@@ -44,7 +44,7 @@ function Create() {
         </div>
         <br />
         <br />
-        <h2>Rounds</h2>
+        <h3>Rounds</h3>
         <div class="number-wrap">
           <input
             type="number"
@@ -61,10 +61,7 @@ function Create() {
         </div>
         <br />
         <br />
-
-        <h3></h3>
-
-        <h2>Question Types</h2>
+        <h3>Question Types</h3>
         <div class="checkbox-wrap">
           <input
             type="checkbox"
@@ -103,18 +100,18 @@ function Create() {
         </div>
 
         {/* Button */}
-        <Link to={`/lobby`}>
+        <Link to={`lobby/`}>
           {/* TODO: make into submit button */}
-          <button class="button large bottom-left green">
-            <h5>Start Party</h5>
+          <button class="button large bottom-left primary">
+            <h3>START</h3>
           </button>
         </Link>
       </form>
 
       {/* Cancel Button */}
       <Link to={`/home`}>
-        <button class="button large bottom-right red">
-          <h5>Cancel</h5>
+        <button class="button large bottom-right secondary">
+          <h3>CANCEL</h3>
         </button>
       </Link>
     </div>

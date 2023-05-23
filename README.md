@@ -35,3 +35,9 @@ https://codepen.io/hylobates-lar/pen/qBbQeON
 https://stackoverflow.com/questions/37798967/tooltip-on-click-of-a-button
 
 https://www.w3schools.com/howto/howto_css_dropup.asp
+
+https://www.cdnfonts.com/gotham.font
+need to get licensing
+
+https://reactrouter.com/en/main/start/tutorial
+how it all started

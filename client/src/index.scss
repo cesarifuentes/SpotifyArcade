@@ -13,31 +13,39 @@
   --shadow: 0 3px 10px rgba(0, 0, 0, 0.2), inset 0 -3px 0 rgba(0, 0, 0, 0.22);
 }
 
+@import url("https://fonts.cdnfonts.com/css/gotham");
+
 html,
 body {
   background-color: black;
   color: #ffffff;
   height: 100%;
-  margin: 0;
-  font-family: "asimov-regular", sans-serif;
+  font-family: "Gotham", sans-serif;
+  // asimov-regular
   overflow: hidden;
+}
+
+* {
+  margin: 0;
+  padding: 0;
   user-select: none;
 }
 
-// * {
-//   margin: 0;
-//   padding: 0;
-// }
-
-.basic-white-opacity {
-  color: #ffffff;
-  opacity: 40%;
+.basic-hover-effect {
+  //   transition: 1s;
+  opacity: 100%;
+  //   scale: 1.1;
 }
 
-.basic-hover-effect {
-  transition: 1s;
-  opacity: 100%;
-  scale: 1.1;
+a:hover,
+a:visited,
+a:link,
+a:active {
+  text-decoration: none;
+}
+
+.hidden {
+  display: none;
 }
 
 .top-right {
@@ -64,18 +72,7 @@ body {
   right: 0;
 }
 
-/* -------------------------------------------------------------------------- */
-/*                                    LOGIN                                   */
-/* -------------------------------------------------------------------------- */
-
-.page {
-  height: calc(100vh - 120px);
-  margin: 60px;
-  position: relative;
-}
-
-.logo-box {
-  width: 342px;
+.centering {
   position: absolute;
   top: 50%;
   left: 0;
@@ -84,65 +81,115 @@ body {
   transform: translateY(-50%);
   text-align: center;
 }
-
-.logo-img {
-  width: 342px;
-  height: 117px;
-  margin-bottom: 30px;
+.glass-effect {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
+
+h1 {
+  font-size: 70px;
+  // line-height: 90px;
+}
+
+// h2 {
+// font-size: 15px;
+// line-height: 50px;
+// }
+
+// Game Titles, Logo Font
+h3 {
+  font-size: 32px;
+  // line-height: 32px;
+}
+
+h4 {
+  // font-size: 15px;
+  line-height: 20px;
+}
+
+// Buttons, Descriptions
+p {
+  font-size: 15px;
+  line-height: 20px;
+}
+
+.page {
+  height: calc(100vh - 120px);
+  margin: 60px;
+  position: relative;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                   BUTTON                                   */
+/* -------------------------------------------------------------------------- */
 
 .button {
   border: none;
   padding: 10px 50px;
   text-align: center;
   cursor: pointer;
-  box-shadow: var(--shadow);
+  font-weight: bold;
 }
 
-.button:hover {
-  @extend .basic-hover-effect;
-}
-
-.immovable {
-  -webkit-user-drag: none;
-  user-select: none;
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-}
-
-// TODO: fix fonts for everything
-
-h5 {
-  /* For Buttons */
-  font-size: 35px;
-  margin-top: 0;
-  margin-bottom: 0;
-}
+// SIZES /////////////////////////////////////////
 
 .button.small {
-  font-size: 15px;
+  // font-size: 15px;
   border-radius: var(--button-radius);
   padding: 10px 30px;
 }
+
 .button.medium {
-  font-size: 25px;
+  // font-size: 25px;
   border-radius: var(--button-radius);
+  // padding: 10px 30px;
 }
 
-.button.green {
+.button.large {
+  // font-size: 50px;
+  padding: 20px 40px;
+  border-radius: var(--button-radius-large);
+}
+
+// COLORS /////////////////////////////////////////
+
+.button.primary {
   background-color: var(--green);
   color: white;
 }
 
-.button.red {
-  background-color: red;
+.button.secondary {
+  background-color: transparent;
+  border: 0.5px solid rgb(117, 117, 117);
   color: white;
 }
 
 .button.white {
   background-color: white;
   color: black;
+}
+
+.button.gray {
+  background-color: var(--gray);
+  color: white;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                    LOGIN                                   */
+/* -------------------------------------------------------------------------- */
+
+.logo-box {
+  @extend .centering;
+  width: 342px;
+}
+
+.logo-img {
+  width: 263px;
+  height: 79px;
 }
 
 .invisible {
@@ -155,8 +202,9 @@ h5 {
 
 .info-icon {
   @extend .top-left;
-  @extend .basic-white-opacity;
   @extend .visible;
+  color: #ffffff;
+  opacity: 40%;
   display: block;
   width: 30px;
   height: 30px;
@@ -191,33 +239,30 @@ h5 {
 
 .flex-item-main {
   @extend .glass-effect;
+  @extend .horiz-center;
   width: 500px;
   height: 500px;
   margin: 5px;
-  // line-height: 50px;
-  // color: white;
-  // font-weight: bold;
-  // font-size: 2em;
-  // text-align: center;
-  @extend .horiz-center;
   display: flex;
   flex-direction: column;
-  align-items: center; //
+  align-items: center;
 }
 
-.glass-effect {
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+.immovable {
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 
 .profile-img {
+  @extend .immovable;
   border-radius: 50%;
   cursor: pointer;
 }
+
+// SIZES /////////////////////////////////////////
 
 .profile-img.small {
   width: 32px;
@@ -236,169 +281,6 @@ h5 {
   text-align: center;
   display: flex;
   justify-content: center;
-}
-
-// .navbar-element {
-//   margin-left: 20px;
-// }
-
-.navbar-element:hover {
-  @extend .basic-hover-effect;
-}
-
-.logout {
-  visibility: visible;
-  display: block;
-  cursor: pointer;
-}
-
-a:hover,
-a:visited,
-a:link,
-a:active {
-  text-decoration: none;
-}
-
-.button.gray {
-  background-color: var(--gray);
-  color: white;
-}
-
-/* -------------------------------------------------------------------------- */
-/*                                   CREATE                                   */
-/* -------------------------------------------------------------------------- */
-
-.title {
-  font-size: 70px;
-  /* font-family: "asimov-pro-bold"; */
-}
-
-h2,
-h3 {
-  /* For Questions */
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-input[type="radio"] {
-  color: var(--green);
-}
-
-.button.large {
-  font-size: 60px;
-  border-radius: var(--button-radius-large);
-}
-
-.button-label {
-  display: inline-block;
-  padding: 1em 1.5em;
-  margin: 0.5em;
-  cursor: pointer;
-  border-radius: var(--button-radius);
-  background: white;
-  color: black;
-  box-shadow: var(--shadow);
-  /* transition: 0.3s; */
-  user-select: none;
-}
-
-.radio-label:checked + .button-label {
-  background: var(--green);
-  color: white;
-}
-
-sinput[type="number"] {
-  font-size: 30px;
-  font-family: inherit;
-  margin: 0.3em;
-  width: 80px;
-  /* border-radius: var(--button-radius); */
-  text-align: center;
-}
-
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-  opacity: 1;
-}
-input[type="checkbox"] {
-  margin: 0.3em;
-}
-
-.checkbox-wrap {
-  margin-top: 0.8em;
-  margin-left: 0.2em;
-}
-
-.hidden {
-  display: none;
-}
-
-.subtext {
-  color: rgba(255, 255, 255, 0.218);
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-/* -------------------------------------------------------------------------- */
-/*                                   PROFILE                                  */
-/* -------------------------------------------------------------------------- */
-
-.flex-container-profile {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  display: flex;
-}
-
-.flex-item-profile {
-  @extend .glass-effect;
-  width: 200px;
-  height: 200px;
-  margin: 10px;
-  @extend .horiz-center;
-  display: flex;
-  flex-direction: column;
-  align-items: center; //
-}
-
-/* -------------------------------------------------------------------------- */
-/*                                    LOBBY                                   */
-/* -------------------------------------------------------------------------- */
-
-.user-group {
-  display: flex;
-  align-items: center;
-  margin-bottom: 25px;
-}
-
-.username {
-  padding: 20px;
-}
-
-.profile-img.medium {
-  width: 80px;
-  height: 80px;
-  border: 2px solid var(--green);
-}
-
-.lobby-code {
-  text-align: center;
-}
-
-p {
-  margin: 0;
-  margin-bottom: 10px;
-}
-
-/* -------------------------------------------------------------------------- */
-/*                                    JOIN                                    */
-/* -------------------------------------------------------------------------- */
-
-#code {
-  font-size: 35px;
-  width: 115px;
-  height: 40px;
-  font-weight: bold;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -447,11 +329,118 @@ p {
   display: block;
 }
 
-.link {
-  padding: 0;
-  margin: 0;
-}
-
 .top-separator {
   border-top: 1px solid rgba(255, 255, 255, 0.236);
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                   CREATE                                   */
+/* -------------------------------------------------------------------------- */
+
+// PLAYERS /////////////////////////////////////////
+
+.button-label {
+  display: inline-block;
+  padding: 1em 1.5em;
+  margin: 0.5em;
+  cursor: pointer;
+  border-radius: var(--button-radius);
+  background: white;
+  color: black;
+  box-shadow: var(--shadow);
+  /* transition: 0.3s; */
+  user-select: none;
+}
+
+.radio-label:checked + .button-label {
+  background: var(--green);
+  color: white;
+}
+
+// ROUNDS /////////////////////////////////////////
+
+input[type="number"] {
+  font-size: 32px;
+  margin: 0.3em;
+  width: 80px;
+  text-align: center;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  opacity: 1;
+}
+
+.subtext {
+  color: rgba(255, 255, 255, 0.218);
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+// QUESTION TYPES /////////////////////////////////////////
+
+input[type="checkbox"] {
+  margin: 0.3em;
+}
+
+.checkbox-wrap {
+  margin-top: 0.8em;
+  margin-left: 0.2em;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                   PROFILE                                  */
+/* -------------------------------------------------------------------------- */
+
+.flex-container-profile {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+}
+
+.flex-item-profile {
+  @extend .glass-effect;
+  width: 200px;
+  height: 200px;
+  margin: 10px;
+  @extend .horiz-center;
+  display: flex;
+  flex-direction: column;
+  align-items: center; //
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                    JOIN                                    */
+/* -------------------------------------------------------------------------- */
+
+#code {
+  font-size: 35px;
+  width: 115px;
+  height: 40px;
+  font-weight: bold;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                    LOBBY                                   */
+/* -------------------------------------------------------------------------- */
+
+.user-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.username {
+  padding: 20px;
+}
+
+.profile-img.medium {
+  width: 80px;
+  height: 80px;
+  border: 2px solid var(--green);
+}
+
+.lobby-code {
+  text-align: center;
 }

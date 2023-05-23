@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function Lobby() {
   return (
     <div class="page">
-      <div class="title">Your Party</div>
+      <h1>Your Party</h1>
       <br />
       <br />
       <div class="user-group">
@@ -54,7 +54,7 @@ function Lobby() {
         <Link to={`/`}>
           {/* TODO: make into copy/paste action */}
           <button class="button large white">
-            <h5>IKQRQ</h5>
+            <h3>IKQRQ</h3>
           </button>
         </Link>
       </div>
@@ -62,14 +62,14 @@ function Lobby() {
       {/* TODO: change button color based on lobby fullness */}
       <Link to={`/`}>
         {/* TODO: make into submit button */}
-        <button class="button large bottom-left green">
-          <h5>Waiting...</h5>
+        <button class="button large bottom-left primary">
+          <h3>WAITING..</h3>
         </button>
       </Link>
       <Link to={`/home`}>
         {/* TODO: make into submit button */}
-        <button class="button large bottom-right red">
-          <h5>Leave</h5>
+        <button class="button large bottom-right secondary">
+          <h3>LEAVE</h3>
         </button>
       </Link>
     </div>
