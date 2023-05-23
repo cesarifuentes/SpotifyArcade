@@ -426,21 +426,62 @@ input[type="checkbox"] {
 /* -------------------------------------------------------------------------- */
 
 .user-group {
+  width: 300px;
+  height: 100px;
   display: flex;
   align-items: center;
-  margin-bottom: 25px;
+  // margin-bottom: 25px;
+  // border: ;
+  border-radius: var(--button-radius);
+  border: 2px dotted white;
+  cursor: pointer;
 }
 
 .username {
   padding: 20px;
 }
 
+.username.right {
+  margin-left: auto;
+}
+
 .profile-img.medium {
-  width: 80px;
-  height: 80px;
-  border: 2px solid var(--green);
+  width: 60px;
+  height: 60px;
+  border: 2px solid white;
+}
+
+.profile-img.left {
+  margin-left: 30px;
+}
+
+.profile-img.right {
+  margin-left: 0px;
+  margin-right: 30px;
 }
 
 .lobby-code {
   text-align: center;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                 MUSICMATCH                                 */
+/* -------------------------------------------------------------------------- */
+
+.user-group:hover {
+  scale: 1.1;
+  // transition: 2s;
+}
+
+.user-group.selected {
+  background-color: white;
+  color: black;
+}
+
+.timer {
+  width: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  margin-top: 15px;
 }

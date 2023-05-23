@@ -9,7 +9,7 @@ function Lobby() {
       <br />
       <div class="user-group">
         <img
-          class="profile-img medium immovable navbar-element visible"
+          class="profile-img medium left immovable navbar-element visible"
           src="/assets/images/profile.jpg"
           alt="spotify-logo"
         />
@@ -19,7 +19,7 @@ function Lobby() {
       </div>
       <div class="user-group">
         <img
-          class="profile-img medium immovable navbar-element visible"
+          class="profile-img medium left immovable navbar-element visible"
           src="/assets/images/profile.jpg"
           alt="spotify-logo"
         />
@@ -29,7 +29,7 @@ function Lobby() {
       </div>
       <div class="user-group">
         <img
-          class="profile-img medium immovable navbar-element visible"
+          class="profile-img medium left immovable navbar-element visible"
           src="/assets/images/profile.jpg"
           alt="spotify-logo"
         />
@@ -39,7 +39,7 @@ function Lobby() {
       </div>
       <div class="user-group">
         <img
-          class="profile-img medium immovable navbar-element visible"
+          class="profile-img medium left immovable navbar-element visible"
           src="/assets/images/profile.jpg"
           alt="spotify-logo"
         />
@@ -60,7 +60,7 @@ function Lobby() {
       </div>
 
       {/* TODO: change button color based on lobby fullness */}
-      <Link to={`/`}>
+      <Link to={`musicmatch/`}>
         {/* TODO: make into submit button */}
         <button class="button large bottom-left primary">
           <h3>WAITING..</h3>
