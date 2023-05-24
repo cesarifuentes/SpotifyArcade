@@ -47,34 +47,7 @@ how it all started
 https://www.youtube.com/watch?v=l8CS9AMBSIQ
 
 <!-- TODO: add voicechat that lowers others audio while music is playing -->
-<!--
-const CLIENT_ID = "0e10132158354330a41de8afaf122210";
-const REDIRECT_URI = "http://localhost:3000";
-const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize";
-const RESPONSE_TYPE = "token";
 
-const [token, setToken] = useState("");
+https://medium.com/@awoldt/using-spotify-api-with-javascript-9dd839407f12
 
-useEffect(() => {
-const hash = window.location.hash;
-let token = window.localStorage.getItem("token");
-
-    if (!token && hash) {
-      token = hash
-        .substring(1)
-        .split("&")
-        .find((elem) => elem.startsWith("access_token"))
-        .split("=")[1];
-
-      window.location.hash = "";
-      window.localStorage.setItem("token", token);
-    }
-
-    setToken(token);
-
-}, []);
-
-const logout = () => {
-setToken("");
-window.localStorage.removeItem("token");
-}; -->
+https://codedamn.com/news/reactjs/how-to-connect-react-with-node-js
