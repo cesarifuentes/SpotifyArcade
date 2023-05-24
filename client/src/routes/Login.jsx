@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { IonIcon } from "@ionic/react";
 import { informationCircle } from "ionicons/icons";
 
+import { useEffect, useState } from "react";
+
 function Login() {
   return (
     <div class="page">

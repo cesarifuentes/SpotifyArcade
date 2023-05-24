@@ -468,6 +468,13 @@ input[type="checkbox"] {
 /*                                 MUSICMATCH                                 */
 /* -------------------------------------------------------------------------- */
 
+.page-gradient {
+  // height: 100%;
+  height: 100vh;
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+}
+
 .user-group:hover {
   scale: 1.1;
   // transition: 2s;
@@ -486,11 +493,6 @@ input[type="checkbox"] {
   margin-top: 15px;
 }
 
-.clickable {
-  background-color: white;
-  color: black;
-}
-
 .album {
   width: 500px;
   height: 500px;
@@ -503,24 +505,6 @@ input[type="checkbox"] {
   // box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   filter: brightness(60%);
 }
-
-body {
-  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-  background-size: 400% 400%;
-  animation: gradient 30s ease infinite;
-}
-
-// @keyframes gradient {
-//   0% {
-//     background-position: 0% 50%;
-//   }
-//   50% {
-//     background-position: 100% 50%;
-//   }
-//   100% {
-//     background-position: 0% 50%;
-//   }
-// }
 
 .instructions {
   width: 200px;
@@ -536,4 +520,15 @@ body {
 
   // position: absolute;
   // bottom: 0;
+}
+
+.leave-icon {
+  // @extend .top-left;
+  @extend .visible;
+  color: #ffffff;
+  // opacity: 40%;
+  display: block;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
 }
