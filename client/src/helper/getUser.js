@@ -1,27 +1,24 @@
-import { useEffect, useState } from "react";
-import SpotifyWebApi from "spotify-web-api-node";
+import { useEffect } from "react";
+import axios from "axios";
 
-const spotifyApi = new SpotifyWebApi({
-  clientId: "0e10132158354330a41de8afaf122210",
-});
-
-function GetUser(accessToken) {
-  let [User, setUser] = useState();
-  //= useState("");
+export default function GetUser(accessToken) {
   useEffect(() => {
-    if (!accessToken) return;
+    if (!accessToken) return; // won't work without accessToken
+    axios
+      .post("http://localhost:8000/user", { accessToken })
+      .then((response) => {
+        // setAccessToken(response.data.accessToken);
+        // console.log("HELLO");
 
-    // Setting Up the spotifyApi with AccessToken so that we can use its functions anywhere in the component without setting AccessToken value again & again.
-    spotifyApi.setAccessToken(accessToken);
-
-    // Get user details with help of getMe() function
-    spotifyApi.getMe().then((resp) => {
-      //   console.log("resp", resp);
-      setUser(resp); // Now it works
-    });
+        localStorage.setItem("user", JSON.stringify(response.data));
+        //
+      })
+      .catch(() => {
+        //   If fail redirect to home page - Login page
+        console.log("error: caught in getUser");
+        // window.location = "/";
+      });
   }, [accessToken]);
 
-  return User;
+  return JSON.parse(localStorage.getItem("user"));
 }
-
-export default GetUser;

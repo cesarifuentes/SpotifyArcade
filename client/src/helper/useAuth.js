@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 export default function UseAuth() {
-  const [accessToken, setAccessToken] = useState(); // TODO: remove this
+  // const [accessToken, setAccessToken] = useState(); // TODO: remove this
 
   const code = localStorage.getItem("code");
   const local_accessToken = localStorage.getItem("accessToken");
@@ -17,13 +17,13 @@ export default function UseAuth() {
         // window.history.pushState({}, null, "/");
 
         // console.log(response.data);
-        setAccessToken(response.data.accessToken);
+        // setAccessToken(response.data.accessToken);
         localStorage.setItem("accessToken", response.data.accessToken);
       })
       .catch(() => {
         //   If fail redirect to home page - Login page
         console.log("error: caught in useAuth");
-        window.location = "/";
+        // window.location = "/";
       });
   }, [code]);
 

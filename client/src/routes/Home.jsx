@@ -11,6 +11,7 @@ function Home() {
 
   const accessToken = useAuth();
   const user = getUser(accessToken);
+  console.log(user);
 
   /* -------------------------------------------------------------------------- */
   /*                                  FRONTEND                                  */
@@ -59,7 +60,7 @@ function Home() {
           <img
             className="profile-img small dropbtn"
             onClick={showDropdrown}
-            src={user ? user.body.images.at(0).url : "/assets/images/error.png"}
+            src={user ? user.images.at(0).url : "/assets/images/error.png"}
             alt="spotify-logo"
           />
           {/* MENU */}

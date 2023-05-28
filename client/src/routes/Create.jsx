@@ -17,7 +17,7 @@ function Create() {
             id="pl-3"
             value="3"
           />
-          <label className="button-label" for="pl-3">
+          <label className="button-label" htmlFor="pl-3">
             <h3>3</h3>
           </label>
           <input
@@ -39,7 +39,7 @@ function Create() {
             type="number"
             id="quantity"
             name="quantity"
-            inputmode="numeric"
+            inputMode="numeric"
             pattern="[0-9]*"
             min="1"
             max="10"
@@ -58,7 +58,7 @@ function Create() {
             name="question1"
             value="Samples"
           />
-          <label for="question1"> Samples</label>
+          <label htmlFor="question1"> Samples</label>
           <br />
           <input
             type="checkbox"
@@ -66,10 +66,10 @@ function Create() {
             name="question2"
             value="Lyrics"
           />
-          <label for="question2"> Lyrics</label>
+          <label htmlFor="question2"> Lyrics</label>
           <br />
           <input type="checkbox" id="question3" name="question3" value="Art" />
-          <label for="question3"> Cover Art</label>
+          <label htmlFor="question3"> Cover Art</label>
           <br />
           <input
             type="checkbox"
@@ -77,7 +77,7 @@ function Create() {
             name="question4"
             value="Artists"
           />
-          <label for="question4"> Artists</label>
+          <label htmlFor="question4"> Artists</label>
           <br />
           <input
             type="checkbox"
@@ -85,7 +85,7 @@ function Create() {
             name="question5"
             value="Playlists"
           />
-          <label for="question5"> Playlists</label>
+          <label htmlFor="question5"> Playlists</label>
         </div>
 
         {/* Button */}

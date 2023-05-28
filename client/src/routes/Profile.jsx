@@ -27,10 +27,10 @@ function Profile() {
       <div className="selected1">
         <img
           className="profile-img large immovable navbar-element visible"
-          src={user ? user.body.images.at(0).url : "/assets/images/error.png"}
+          src={user ? user.images.at(0).url : "/assets/images/error.png"}
           alt="spotify-logo"
         />
-        <div className="title">{user ? user.body.display_name : "N/A"}</div>
+        <div className="title">{user ? user.display_name : "N/A"}</div>
       </div>
 
       <br />

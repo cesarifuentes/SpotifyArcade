@@ -43,7 +43,6 @@ app.get("/", (req, res) => {
 app.post("/login", (req, res) => {
   //  setup
   let spotifyApi = new spotifyWebApi(credentials);
-  // TODO: move this globally, as well as other calls in frontend
 
   //  Get the "code" value posted from the client-side and get the user's accessToken from the spotify api
   const code = req.body.code;
@@ -52,6 +51,8 @@ app.post("/login", (req, res) => {
   spotifyApi
     .authorizationCodeGrant(code)
     .then((data) => {
+      // TODO: Setting Up the spotifyApi with AccessToken so that we can use its functions anywhere in the component without setting AccessToken value again & again.
+      spotifyApi.setAccessToken(data.body.access_token);
       // Returning the User's AccessToken in the json formate
       res.json({
         accessToken: data.body.access_token,
@@ -60,7 +61,29 @@ app.post("/login", (req, res) => {
     .catch((err) => {
       console.log(err);
       console.log("error in app.post(/login)");
+      res.sendStatus(400);
+    });
+});
 
+app.post("/user", (req, res) => {
+  //  setup
+  let spotifyApi = new spotifyWebApi(credentials);
+  spotifyApi.setAccessToken(req.body.accessToken);
+
+  // Retrieve a user
+  spotifyApi
+    .getMe()
+    .then((data) => {
+      // Returning the User in the json formate
+      res.json({
+        display_name: data.body.display_name,
+        images: data.body.images,
+        id: data.body.id,
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      console.log("error in app.post(/user)");
       res.sendStatus(400);
     });
 });
