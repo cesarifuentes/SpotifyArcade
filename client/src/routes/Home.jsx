@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-
+import showDropdrown from "../helper/navDropdown";
 import useAuth from "../helper/useAuth";
 import getUser from "../helper/getUser";
-import showDropdrown from "../helper/navDropdown";
 
 function Home() {
   /* -------------------------------------------------------------------------- */
@@ -70,6 +69,7 @@ function Home() {
             <Link className="top-separator" to={`/`}>
               Log Out
             </Link>
+            {/* // onClick={window.localStorage.clear()} // this aint working */}
           </div>
         </div>
       </div>

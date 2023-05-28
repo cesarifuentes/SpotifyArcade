@@ -9,7 +9,7 @@ export default function UseAuth() {
 
   useEffect(() => {
     if (!code) return; // won't work without code
-    if (local_accessToken) return local_accessToken; // won't replace existing accessToken
+    if (local_accessToken) return; // won't replace existing accessToken
     axios
       .post("http://localhost:8000/login", { code })
       .then((response) => {
@@ -27,5 +27,5 @@ export default function UseAuth() {
       });
   }, [code]);
 
-  return accessToken;
+  return localStorage.getItem("accessToken");
 }

@@ -1,23 +1,36 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import useAuth from "../helper/useAuth";
+import getUser from "../helper/getUser";
 
 function Profile() {
+  /* -------------------------------------------------------------------------- */
+  /*                                   BACKEND                                  */
+  /* -------------------------------------------------------------------------- */
+
+  const accessToken = useAuth();
+  const user = getUser(accessToken);
+
+  /* -------------------------------------------------------------------------- */
+  /*                                  FRONTEND                                  */
+  /* -------------------------------------------------------------------------- */
+
   return (
-    <div class="page">
-      <div class="title">My Profile</div>
+    <div className="page">
+      <div className="title">My Profile</div>
       <br />
 
       {/* TODO: add image swap */}
       {/* TODO: add username swap */}
       {/* TODO: add new container */}
 
-      <div class="selected1">
+      <div className="selected1">
         <img
-          class="profile-img large immovable navbar-element visible"
-          src="/assets/images/profile.jpg"
+          className="profile-img large immovable navbar-element visible"
+          src={user ? user.body.images.at(0).url : "/assets/images/error.png"}
           alt="spotify-logo"
         />
-        <div class="title">Cesar</div>
+        <div className="title">{user ? user.body.display_name : "N/A"}</div>
       </div>
 
       <br />
@@ -28,26 +41,15 @@ function Profile() {
 
       <h2>My Progress</h2>
       <br />
-      <ul class="flex-container-profile">
-        <li class="flex-item-profile selected3">Game 1</li>
-        <li class="flex-item-profile selected3">Game 2</li>
-        <li class="flex-item-profile selected3">Game 3</li>
+      <ul className="flex-container-profile">
+        <li className="flex-item-profile selected3">Game 1</li>
+        <li className="flex-item-profile selected3">Game 2</li>
+        <li className="flex-item-profile selected3">Game 3</li>
       </ul>
 
-      <div class="navbar">
-        {/* Profile Picture */}
-        <Link class="invisible" to={`profile/`}>
-          <img
-            class="profile-img small immovable navbar-element visible"
-            src="/assets/images/profile.jpg"
-            alt="spotify-logo"
-          />
-        </Link>
-      </div>
-
       {/* Return Button */}
-      <Link to={`/home`}>
-        <button class="button large bottom-right secondary">
+      <Link to={`/`}>
+        <button className="button large bottom-right secondary">
           <h3>HOME</h3>
         </button>
       </Link>
