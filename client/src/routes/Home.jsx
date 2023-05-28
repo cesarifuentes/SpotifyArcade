@@ -1,7 +1,14 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-function Home() {
+import useAuth from "../helper/useAuth";
+import getUser from "../helper/getUser";
+
+const Home = ({ code }) => {
+  /* -------------------------------------------------------------------------- */
+  /*                                   button                                   */
+  /* -------------------------------------------------------------------------- */
+
   // Close the dropdown if the user clicks outside of it
   window.onclick = function (event) {
     // alert("closing");
@@ -23,11 +30,23 @@ function Home() {
     document.getElementById("myDropdown").classList.toggle("show");
   };
 
+  /* -------------------------------------------------------------------------- */
+  /*                                   BACKEND                                  */
+  /* -------------------------------------------------------------------------- */
+
+  const accessToken = useAuth(code);
+  const user = getUser(accessToken);
+
+  /* -------------------------------------------------------------------------- */
+  /*                                  FRONTEND                                  */
+  /* -------------------------------------------------------------------------- */
+
   return (
-    <div class="page">
-      <ul class="flex-container-main horiz-center">
-        <li class="flex-item-main">
+    <div className="page">
+      <ul className="flex-container-main horiz-center">
+        <li className="flex-item-main">
           <h3>MUSIC MATCH</h3>
+          {/* <p>${code}</p> */}
           <br />
           <p style={{ textAlign: "center", width: "400px" }}>
             Compete with your friends to see who knows each others music taste
@@ -35,20 +54,20 @@ function Home() {
           </p>
           <br />
           <Link to={`create/`}>
-            <button class="button small primary">
+            <button className="button small primary">
               <p>CREATE PARTY</p>
               {/* <h5>CREATE PARTY</h5> */}
             </button>
           </Link>
           <br />
           <Link to={`join/`}>
-            <button class="button small secondary">
+            <button className="button small secondary">
               <p>JOIN PARTY</p>
             </button>
           </Link>
         </li>
 
-        {/* <li class="flex-item-main">
+        {/* <li className="flex-item-main">
           <h1>ARTIST GENRE</h1>
           <p style={{ textAlign: "center", width: "400px" }}>
             Test your knowledge of the artists you follow by matching them to
@@ -58,21 +77,23 @@ function Home() {
       </ul>
 
       {/* TODO: fix spacing issue */}
-      {/* TODO: put this on every page, layout.jsx */}
-      <div class="navbar">
-        <div class="dropdown">
+      {/* TODO: move to layout.jsx */}
+      <div className="navbar">
+        <div className="dropdown">
           {/* IMAGE */}
           <img
-            class="profile-img small dropbtn"
+            className="profile-img small dropbtn"
             onClick={myFunction}
-            src="/assets/images/profile.jpg"
+            src={
+              user ? user.body.images.at(0).url : "/assets/images/profile.jpg"
+            }
             alt="spotify-logo"
           />
           {/* MENU */}
-          <div id="myDropdown" class="dropdown-content">
+          <div id="myDropdown" className="dropdown-content">
             <Link to={`profile/`}>Profile</Link>
             {/* <Link to={`/`}>Settings</Link> */}
-            <Link class="top-separator" to={`/`}>
+            <Link className="top-separator" to={`/`}>
               Log Out
             </Link>
           </div>
@@ -80,6 +101,12 @@ function Home() {
       </div>
     </div>
   );
-}
+};
 
 export default Home;
+
+// console.log(data.body.images.at(0).url);
+// setUser(resp); // user.data
+// setUser({ ...user, data: resp });
+
+// const x = { body: resp };

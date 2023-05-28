@@ -19,31 +19,32 @@ import Profile from "./routes/Profile";
 import Lobby from "./routes/Lobby";
 import MusicMatch from "./routes/MusicMatch";
 
+// Get code from url (after logged in)
+const code = new URLSearchParams(window.location.search).get("code");
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
-      <Route index element={<Login />} />
-      <Route path="home/">
-        <Route index element={<Home />} />
-        <Route path="profile/" element={<Profile />} />
-        <Route path="create/">
-          <Route index element={<Create />} />
-          <Route path="lobby/">
-            <Route index element={<Lobby />} />
-            <Route path="musicmatch/" element={<MusicMatch />} />
-          </Route>
-        </Route>
-        <Route path="join/">
-          <Route index element={<Join />} />
-          <Route path="lobby/" element={<Lobby />} />
+      <Route index element={code ? <Home code={code} /> : <Login />} />
+      <Route path="profile/" element={<Profile />} />
+      <Route path="create/">
+        <Route index element={<Create />} />
+        <Route path="lobby/">
+          <Route index element={<Lobby />} />
+          <Route path="musicmatch/" element={<MusicMatch />} />
         </Route>
       </Route>
+      <Route path="join/">
+        <Route index element={<Join />} />
+        <Route path="lobby/" element={<Lobby />} />
+      </Route>
     </Route>
+    // </Route>
   )
 );
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>
+  // <React.StrictMode>
+  <RouterProvider router={router} />
+  // </React.StrictMode>
 );

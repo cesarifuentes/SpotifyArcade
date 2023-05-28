@@ -8,6 +8,7 @@
     "start": "node server",
     "dev": "nodemon server"
   },
+  "proxy": "http://localhost:3000/",
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -22,6 +23,7 @@
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "form-data-encoder": "^3.0.0",
+    "http-proxy-middleware": "^2.0.6",
     "node-fetch": "^3.3.1",
     "querystring": "^0.2.1"
   }

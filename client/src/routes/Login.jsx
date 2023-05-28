@@ -1,22 +1,11 @@
 import React from "react";
-import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { IonIcon } from "@ionic/react";
 import { informationCircle } from "ionicons/icons";
 
-function CallAPI() {}
+import { loginUrl } from "../helper/loginUrl";
 
 function Login() {
-  CallAPI();
-
-  const [message, setMessage] = useState("");
-
-  useEffect(() => {
-    fetch("http://localhost:3001/message")
-      .then((res) => res.json())
-      .then((data) => setMessage(data.message));
-  }, []);
-
   return (
     <div className="page">
       {/* Login Container */}
@@ -32,18 +21,18 @@ function Login() {
         <br />
         <br />
         {/* Login Button */}
-        {/* <Link to={`/home`}> */}
-        <button className="button medium primary">
-          <p>LOG IN</p>
-        </button>
-        <h1>{message}</h1>
-        {/* </Link> */}
+        <Link to={loginUrl}>
+          <button className="button medium primary">
+            <p>LOG IN</p>
+          </button>
+          <br />
+          {/* <p>{JSON.stringify(data, null, 4)}</p> */}
+        </Link>
       </div>
 
       {/* Help Button */}
       <Link className="invisible" to={`/tutorial`}>
         <button type="button">
-          {/*  onClick={useEffect(temp, [])} */}
           <IonIcon className="info-icon" icon={informationCircle}></IonIcon>
         </button>
       </Link>

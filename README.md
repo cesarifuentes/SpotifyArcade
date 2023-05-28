@@ -55,3 +55,9 @@ https://codedamn.com/news/reactjs/how-to-connect-react-with-node-js
 but in React and ReactNative there is no HTML, we use JSX(Javascript XML) here we use
 className="navbar"
 And also use htmlFor attribute instead of for.
+
+https://dev.to/dipeshjaiswal/spotify-authentication-using-client-react-and-server-expressjs-27l0
+
+https://webdesign.tutsplus.com/tutorials/better-web-images-with-svg-grainy-filters--cms-39739
+
+https://dev.to/antdp425/react-fetch-data-from-api-with-useeffect-27le
