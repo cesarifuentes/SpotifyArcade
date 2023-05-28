@@ -43,6 +43,7 @@ app.get("/", (req, res) => {
 app.post("/login", (req, res) => {
   //  setup
   let spotifyApi = new spotifyWebApi(credentials);
+  // TODO: move this globally, as well as other calls in frontend
 
   //  Get the "code" value posted from the client-side and get the user's accessToken from the spotify api
   const code = req.body.code;
@@ -58,6 +59,8 @@ app.post("/login", (req, res) => {
     })
     .catch((err) => {
       console.log(err);
+      console.log("error in app.post(/login)");
+
       res.sendStatus(400);
     });
 });

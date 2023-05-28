@@ -5,12 +5,12 @@ import useAuth from "../helper/useAuth";
 import getUser from "../helper/getUser";
 import showDropdrown from "../helper/navDropdown";
 
-const Home = ({ code }) => {
+function Home() {
   /* -------------------------------------------------------------------------- */
   /*                                   BACKEND                                  */
   /* -------------------------------------------------------------------------- */
 
-  const accessToken = useAuth(code);
+  const accessToken = useAuth();
   const user = getUser(accessToken);
 
   /* -------------------------------------------------------------------------- */
@@ -60,7 +60,7 @@ const Home = ({ code }) => {
           <img
             className="profile-img small dropbtn"
             onClick={showDropdrown}
-            src={user ? user.body.images.at(0).url : "/assets/images/error"}
+            src={user ? user.body.images.at(0).url : "/assets/images/error.png"}
             alt="spotify-logo"
           />
           {/* MENU */}
@@ -75,6 +75,6 @@ const Home = ({ code }) => {
       </div>
     </div>
   );
-};
+}
 
 export default Home;
