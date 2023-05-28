@@ -3,38 +3,38 @@ import { Link } from "react-router-dom";
 
 function Create() {
   return (
-    <div class="page">
+    <div className="page">
       <h1>Create a Party</h1>
       <br />
       <br />
       <form>
         <h3>Players</h3>
-        <div class="radio-wrap">
+        <div className="radio-wrap">
           <input
-            class="hidden radio-label"
+            className="hidden radio-label"
             type="radio"
             name="players"
             id="pl-3"
             value="3"
           />
-          <label class="button-label" for="pl-3">
+          <label className="button-label" for="pl-3">
             <h3>3</h3>
           </label>
           <input
-            class="hidden radio-label"
+            className="hidden radio-label"
             type="radio"
             name="players"
             id="pl-4"
             value="4"
           />
-          <label class="button-label" for="pl-4">
+          <label className="button-label" for="pl-4">
             <h3>4</h3>
           </label>
         </div>
         <br />
         <br />
         <h3>Rounds</h3>
-        <div class="number-wrap">
+        <div className="number-wrap">
           <input
             type="number"
             id="quantity"
@@ -46,12 +46,12 @@ function Create() {
             step="1"
             // value="5"
           />
-          {/* <p class="subtext">25 minutes</p> */}
+          {/* <p className="subtext">25 minutes</p> */}
         </div>
         <br />
         <br />
         <h3>Question Types</h3>
-        <div class="checkbox-wrap">
+        <div className="checkbox-wrap">
           <input
             type="checkbox"
             id="question1"
@@ -91,15 +91,15 @@ function Create() {
         {/* Button */}
         <Link to={`lobby/`}>
           {/* TODO: make into submit button */}
-          <button class="button large bottom-left primary">
+          <button className="button large bottom-left primary">
             <h3>START</h3>
           </button>
         </Link>
       </form>
 
       {/* Cancel Button */}
-      <Link to={`/home`}>
-        <button class="button large bottom-right secondary">
+      <Link to={`/`}>
+        <button className="button large bottom-right secondary">
           <h3>CANCEL</h3>
         </button>
       </Link>

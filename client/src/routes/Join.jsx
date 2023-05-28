@@ -15,18 +15,18 @@ function Join() {
   });
 
   return (
-    <div class="page">
+    <div className="page">
       <h1>Join a Party</h1>
       <br />
       <br />
       <form>
-        <div class="lobby-code top-right">
+        <div className="lobby-code top-right">
           <p>ENTER CODE</p>
           <h5>
             <input
               type="text"
               id="code"
-              class="button large white code-input"
+              className="button large white code-input"
             />
           </h5>
         </div>
@@ -35,15 +35,15 @@ function Join() {
         <Link to={`lobby/`}>
           {/* TODO: make into submit button */}
           {/* TODO: make button white until filled */}
-          <button class="button large bottom-left primary">
+          <button className="button large bottom-left primary">
             <h3>JOIN</h3>
           </button>
         </Link>
       </form>
 
       {/* Cancel Button */}
-      <Link to={`/home`}>
-        <button class="button large bottom-right secondary">
+      <Link to={`/`}>
+        <button className="button large bottom-right secondary">
           <h3>CANCEL</h3>
         </button>
       </Link>

@@ -43,3 +43,4 @@ This web app lets you compete with your friends to see who knows each others mus
 - add voicechat that lowers others audio while music is playing
 - but in React and ReactNative there is no HTML, we use JSX(Javascript XML) here we use
   className="navbar" And also use htmlFor attribute instead of for.
+- create button at end of game that lets them download the playlist they created into spotify
