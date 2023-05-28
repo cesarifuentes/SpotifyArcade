@@ -1,18 +1,29 @@
 import React from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { IonIcon } from "@ionic/react";
 import { informationCircle } from "ionicons/icons";
 
-import { useEffect, useState } from "react";
+function CallAPI() {}
 
 function Login() {
+  CallAPI();
+
+  const [message, setMessage] = useState("");
+
+  useEffect(() => {
+    fetch("http://localhost:3001/message")
+      .then((res) => res.json())
+      .then((data) => setMessage(data.message));
+  }, []);
+
   return (
-    <div class="page">
+    <div className="page">
       {/* Login Container */}
-      <div class="logo-box">
+      <div className="logo-box">
         {/* Logo */}
         <img
-          class="logo-img immovable"
+          className="logo-img immovable"
           src="/assets/images/Spotify_Logo_RGB_Green.png"
           alt="spotify-logo"
         />
@@ -21,17 +32,19 @@ function Login() {
         <br />
         <br />
         {/* Login Button */}
-        <Link to={`/home`}>
-          <button class="button medium primary">
-            <p>LOG IN</p>
-          </button>
-        </Link>
+        {/* <Link to={`/home`}> */}
+        <button className="button medium primary">
+          <p>LOG IN</p>
+        </button>
+        <h1>{message}</h1>
+        {/* </Link> */}
       </div>
 
       {/* Help Button */}
-      <Link class="invisible" to={`/tutorial`}>
+      <Link className="invisible" to={`/tutorial`}>
         <button type="button">
-          <IonIcon class="info-icon" icon={informationCircle}></IonIcon>
+          {/*  onClick={useEffect(temp, [])} */}
+          <IonIcon className="info-icon" icon={informationCircle}></IonIcon>
         </button>
       </Link>
     </div>

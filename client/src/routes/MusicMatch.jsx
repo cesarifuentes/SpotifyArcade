@@ -1,7 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { IonIcon } from "@ionic/react";
-import { exit } from "ionicons/icons";
+// import { Link } from "react-router-dom";
+// import { IonIcon } from "@ionic/react";
+// import { exit } from "ionicons/icons";
 
 function MusicMatch() {
   function click(n) {

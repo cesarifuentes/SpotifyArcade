@@ -51,3 +51,7 @@ https://www.youtube.com/watch?v=l8CS9AMBSIQ
 https://medium.com/@awoldt/using-spotify-api-with-javascript-9dd839407f12
 
 https://codedamn.com/news/reactjs/how-to-connect-react-with-node-js
+
+but in React and ReactNative there is no HTML, we use JSX(Javascript XML) here we use
+className="navbar"
+And also use htmlFor attribute instead of for.
