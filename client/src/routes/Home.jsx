@@ -3,33 +3,9 @@ import { Link } from "react-router-dom";
 
 import useAuth from "../helper/useAuth";
 import getUser from "../helper/getUser";
+import showDropdrown from "../helper/navDropdown";
 
 const Home = ({ code }) => {
-  /* -------------------------------------------------------------------------- */
-  /*                                   button                                   */
-  /* -------------------------------------------------------------------------- */
-
-  // Close the dropdown if the user clicks outside of it
-  window.onclick = function (event) {
-    // alert("closing");
-    if (!event.target.matches(".dropbtn")) {
-      var dropdowns = document.getElementsByClassName("dropdown-content");
-      var i;
-      for (i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains("show")) {
-          openDropdown.classList.remove("show");
-        }
-      }
-    }
-  };
-
-  const myFunction = (e) => {
-    e.preventDefault();
-    // alert("opening");
-    document.getElementById("myDropdown").classList.toggle("show");
-  };
-
   /* -------------------------------------------------------------------------- */
   /*                                   BACKEND                                  */
   /* -------------------------------------------------------------------------- */
@@ -83,7 +59,7 @@ const Home = ({ code }) => {
           {/* IMAGE */}
           <img
             className="profile-img small dropbtn"
-            onClick={myFunction}
+            onClick={showDropdrown}
             src={user ? user.body.images.at(0).url : "/assets/images/error"}
             alt="spotify-logo"
           />
@@ -102,9 +78,3 @@ const Home = ({ code }) => {
 };
 
 export default Home;
-
-// console.log(data.body.images.at(0).url);
-// setUser(resp); // user.data
-// setUser({ ...user, data: resp });
-
-// const x = { body: resp };
