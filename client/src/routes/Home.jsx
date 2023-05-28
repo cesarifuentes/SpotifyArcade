@@ -84,9 +84,7 @@ const Home = ({ code }) => {
           <img
             className="profile-img small dropbtn"
             onClick={myFunction}
-            src={
-              user ? user.body.images.at(0).url : "/assets/images/profile.jpg"
-            }
+            src={user ? user.body.images.at(0).url : "/assets/images/error"}
             alt="spotify-logo"
           />
           {/* MENU */}
