@@ -9,11 +9,30 @@ import displayPlaylists from "../helper/displayPlaylists";
 // import { eyeOff } from "ionoicons/icns";
 //         <IonIcon className="eyeOff" icon={eyeOff}></IonIcon>;
 
+function saveToProfile() {
+  console.log("Saving to profile...");
+  const image = document.getElementById("upload-image");
+  console.log(image.src);
+  // elem.style.color = newColor;
+  const text = document.getElementById("upload-text");
+  // elem.style.color = newColor;
+}
+
+// TODO: chance image src on upload
+
+function loadFile(event) {
+  console.log("Changing photo...");
+  // var image = document.getElementById("profile-img");
+  // console.log(image.src);
+  // image.src = URL.createObjectURL(event.target.files[0]);
+}
+
 function Profile() {
   /* -------------------------------------------------------------------------- */
   /*                                   BACKEND                                  */
   /* -------------------------------------------------------------------------- */
 
+  // TODO: change any page that isnt home to use local storage
   const accessToken = useAuth();
   const user = getUser(accessToken);
   const playlists = getPlaylists(accessToken);
@@ -37,14 +56,38 @@ function Profile() {
       <p>Changes made here will not reflect in Spotify</p>
       <br />
       <div className="user-tag">
-        <input type="file" id="upload" hidden />
-        <label for="upload">
+        <input
+          type="file"
+          id="upload"
+          accept="image/*"
+          onChange={(event) => {
+            // this.loadFile(event);
+            console.log("Changing photo...");
+            console.log(event.target);
+            localStorage.setItem(
+              "image",
+              URL.createObjectURL(event.target.files[0])
+            );
+            console.log(URL.createObjectURL(event.target.files[0]));
+            // var image = document.getElementById("profile-img");
+            // image.src = URL.createObjectURL(event.target.files[0]);
+            // console.log(image);
+          }}
+          hidden
+        />
+        <label htmlFor="upload">
           <div className="image-and-text">
             <img
               className="profile-img image-upload-button large left immovable
             visible"
-              src={user ? user.images.at(0).url : "/assets/images/error.png"}
+              src={
+                user
+                  ? localStorage.getItem("image")
+                  : "/assets/images/error.png"
+              }
+              // TODO: user.images.at(0).url
               alt="spotify-logo"
+              id="upload-image"
             />
             <div className="image-overlay-text">
               {/* <IonIcon className="" icon={pencil}> */}
@@ -54,8 +97,14 @@ function Profile() {
           </div>
         </label>
 
-        <div className="username">
-          <h2>{user ? user.display_name : "N/A"}</h2>
+        <div className="username large">
+          {/* <h2>{user ? user.display_name : "N/A"}</h2> */}
+          <input
+            type="text"
+            id="upload-text"
+            className="profile-text-input"
+            defaultValue={user ? user.display_name : "N/A"}
+          />
         </div>
       </div>
 
@@ -63,6 +112,9 @@ function Profile() {
       <br />
       <br />
       <br />
+      <br />
+      <br />
+
       {/* <h2>My Progress</h2>
       <p>12 Wins</p>
       <br />
@@ -93,6 +145,17 @@ function Profile() {
         </button>
       </Link>
       {/*  */}
+
+      {/* Button */}
+      {/* <Link to={`lobby/`}> */}
+      {/* TODO: make into submit button */}
+      <button
+        className="button large bottom-left primary"
+        onClick={saveToProfile}
+      >
+        <h3>SAVE</h3>
+      </button>
+      {/* </Link> */}
     </div>
   );
 }

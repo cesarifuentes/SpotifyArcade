@@ -2,8 +2,14 @@ import { useEffect } from "react";
 import axios from "axios";
 
 export default function GetUser(accessToken) {
+  let local_user = localStorage.getItem("user");
+
   useEffect(() => {
-    if (!accessToken) return; // won't work without accessToken
+    // Check for valid parameter
+    if (!accessToken) return;
+    // Check if access token already requested
+    if (local_user) return;
+
     axios
       .post("http://localhost:8000/user", { accessToken })
       .then((response) => {

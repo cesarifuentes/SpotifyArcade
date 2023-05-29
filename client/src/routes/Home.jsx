@@ -1,8 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import showDropdrown from "../helper/navDropdown";
 import useAuth from "../helper/useAuth";
 import getUser from "../helper/getUser";
+
+import { IonIcon } from "@ionic/react";
+import { person, people } from "ionicons/icons";
+
+function logout() {
+  console.log("button clicked");
+  window.localStorage.clear();
+  window.location = "/";
+}
 
 function Home() {
   /* -------------------------------------------------------------------------- */
@@ -11,8 +20,6 @@ function Home() {
 
   const accessToken = useAuth();
   const user = getUser(accessToken);
-  // const display_name = user ? user.display_name : "";
-  // console.log(user);
 
   /* -------------------------------------------------------------------------- */
   /*                                  FRONTEND                                  */
@@ -22,39 +29,41 @@ function Home() {
     <div className="page">
       <ul className="flex-container-main horiz-center">
         <li className="flex-item-main">
-          <h3>MUSIC MATCH</h3>
-          {/* <p>${code}</p> */}
-          <br />
+          {/* LOGO */}
+          <img
+            className="game-logo immovable"
+            src="/assets/images/musicmatch-logos/2.png"
+            alt="musicmatch-logo"
+          />
+          {/* DESCRIPTION */}
           <p style={{ textAlign: "center", width: "400px" }}>
             Compete with your friends to see who knows each others music taste
             the best.
           </p>
           <br />
+          {/* CREATE BUTTON */}
           <Link to={`create/`}>
             <button className="button small primary">
               <p>CREATE PARTY</p>
-              {/* <h5>CREATE PARTY</h5> */}
             </button>
           </Link>
           <br />
+          {/* JOIN BUTTON */}
           <Link to={`join/`}>
             <button className="button small secondary">
               <p>JOIN PARTY</p>
             </button>
           </Link>
+          {/* PLAYERS */}
+          <div className="player-count bottom-right">
+            <IonIcon icon={people}></IonIcon>
+            <span>&nbsp;4</span>
+          </div>
+          {/* END */}
         </li>
-
-        {/* <li className="flex-item-main">
-          <h1>ARTIST GENRE</h1>
-          <p style={{ textAlign: "center", width: "400px" }}>
-            Test your knowledge of the artists you follow by matching them to
-            their subgenres.
-          </p>
-        </li> */}
       </ul>
 
-      {/* TODO: fix spacing issue */}
-      {/* TODO: move to layout.jsx */}
+      {/* NAVBAR */}
       <div className="navbar">
         <div className="dropdown">
           {/* IMAGE */}
@@ -62,17 +71,25 @@ function Home() {
             className="profile-img small dropbtn"
             onClick={showDropdrown}
             src={user ? user.images.at(0).url : "/assets/images/error.png"}
-            alt="spotify-logo"
+            alt="user-img"
           />
           {/* MENU */}
           <div id="myDropdown" className="dropdown-content">
-            <Link to={`profile/`}>Profile</Link>
-            {/* <Link to={`/`}>Settings</Link> */}
-            <Link className="top-separator" to={`/`}>
-              Log Out
+            <Link to={`profile/`}>
+              <div className="navigator">Settings</div>
             </Link>
-            {/* // onClick={window.localStorage.clear()} // this aint working */}
+            <Link
+              onClick={() => {
+                logout();
+              }}
+            >
+              <div className="navigator top-separator">
+                <p>Log Out</p>
+              </div>
+            </Link>
+            {/* TODO: move to database on login */}
           </div>
+          {/* END */}
         </div>
       </div>
     </div>

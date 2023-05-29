@@ -14,16 +14,6 @@ function Create() {
             className="hidden radio-label"
             type="radio"
             name="players"
-            id="pl-3"
-            value="3"
-          />
-          <label className="button-label" htmlFor="pl-3">
-            <h3>3</h3>
-          </label>
-          <input
-            className="hidden radio-label"
-            type="radio"
-            name="players"
             id="pl-4"
             value="4"
           />
