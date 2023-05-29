@@ -11,7 +11,8 @@ function Home() {
 
   const accessToken = useAuth();
   const user = getUser(accessToken);
-  console.log(user);
+  // const display_name = user ? user.display_name : "";
+  // console.log(user);
 
   /* -------------------------------------------------------------------------- */
   /*                                  FRONTEND                                  */

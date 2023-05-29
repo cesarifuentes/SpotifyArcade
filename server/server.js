@@ -5,6 +5,11 @@ require("dotenv").config(); // hold our credentials
 // const mongoose = require("mongoose"); // database
 const spotifyWebApi = require("spotify-web-api-node");
 
+const http = require("http");
+const server = http.createServer(app);
+const { Server } = require("socket.io");
+const io = new Server(server);
+
 /* -------------------------------------------------------------------------- */
 /*                                  VARIABLES                                 */
 /* -------------------------------------------------------------------------- */
@@ -25,10 +30,6 @@ app.use(cors()); // To handle cross-origin requests
 app.use(express.json()); // To parse JSON bodies
 
 /* -------------------------------------------------------------------------- */
-/*                                     ...                                    */
-/* -------------------------------------------------------------------------- */
-
-/* -------------------------------------------------------------------------- */
 /*                                OTHER ROUTES                                */
 /* -------------------------------------------------------------------------- */
 
@@ -37,7 +38,7 @@ app.get("/", (req, res) => {
 });
 
 /* -------------------------------------------------------------------------- */
-/*                            AUTHORIZATION ROUTES                            */
+/*                               SPOTIFY ROUTES                               */
 /* -------------------------------------------------------------------------- */
 
 app.post("/login", (req, res) => {
@@ -59,8 +60,7 @@ app.post("/login", (req, res) => {
       });
     })
     .catch((err) => {
-      console.log(err);
-      console.log("error in app.post(/login)");
+      console.log("Something in /login went wrong! ", err);
       res.sendStatus(400);
     });
 });
@@ -82,10 +82,38 @@ app.post("/user", (req, res) => {
       });
     })
     .catch((err) => {
-      console.log(err);
-      console.log("error in app.post(/user)");
+      console.log("Something in /user went wrong! ", err);
       res.sendStatus(400);
     });
+});
+
+app.post("/playlists", (req, res) => {
+  //  setup
+  let spotifyApi = new spotifyWebApi(credentials);
+  spotifyApi.setAccessToken(req.body.accessToken);
+
+  // const username = req.body.username;
+
+  // Retrieve a user
+  spotifyApi
+    .getUserPlaylists({ limit: 10 })
+    .then((data) => {
+      // Returning the User in the json formate
+      // href, id, images, name, tracks,
+      res.json(data.body.items);
+    })
+    .catch((err) => {
+      console.log("Something in /playlists went wrong! ", err);
+      res.sendStatus(400);
+    });
+});
+
+/* -------------------------------------------------------------------------- */
+/*                                  SOCKET.IO                                 */
+/* -------------------------------------------------------------------------- */
+
+io.on("connection", (socket) => {
+  console.log("a user connected");
 });
 
 /* -------------------------------------------------------------------------- */
@@ -93,6 +121,6 @@ app.post("/user", (req, res) => {
 /* -------------------------------------------------------------------------- */
 
 // set up the website to run on port
-app.listen(PORT, () => {
+server.listen(PORT, () => {
   console.log(`Server (express app) listening on ${PORT}`);
 });

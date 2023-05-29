@@ -8,7 +8,7 @@ function Create() {
       <br />
       <br />
       <form>
-        <h3>Players</h3>
+        <h2>Players</h2>
         <div className="radio-wrap">
           <input
             className="hidden radio-label"
@@ -27,13 +27,13 @@ function Create() {
             id="pl-4"
             value="4"
           />
-          <label className="button-label" for="pl-4">
+          <label className="button-label" htmlFor="pl-4">
             <h3>4</h3>
           </label>
         </div>
         <br />
         <br />
-        <h3>Rounds</h3>
+        <h2>Rounds</h2>
         <div className="number-wrap">
           <input
             type="number"
@@ -50,7 +50,7 @@ function Create() {
         </div>
         <br />
         <br />
-        <h3>Question Types</h3>
+        <h2>Question Types</h2>
         <div className="checkbox-wrap">
           <input
             type="checkbox"

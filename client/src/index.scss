@@ -124,10 +124,10 @@ h1 {
   // line-height: 90px;
 }
 
-// h2 {
-// font-size: 15px;
-// line-height: 50px;
-// }
+h2 {
+  // font-size: 15px;
+  line-height: 40px;
+}
 
 // Game Titles, Logo Font
 h3 {
@@ -299,12 +299,6 @@ p {
   border: 2px solid var(--gray);
 }
 
-.profile-img.large {
-  width: 200px;
-  height: 200px;
-  border: 1px solid var(--gray);
-}
-
 .navbar {
   @extend .top-right;
   text-align: center;
@@ -421,22 +415,90 @@ input[type="checkbox"] {
 /*                                   PROFILE                                  */
 /* -------------------------------------------------------------------------- */
 
+.image-and-text {
+  position: relative;
+  margin-left: 30px;
+}
+
+.image-upload-button {
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.image-overlay-text {
+  position: absolute;
+  text-align: center;
+  top: 48%; /* Adjust this value to move the positioned div up and down */
+  // background: rgba(0, 0, 0, 0.8);
+  font-family: Arial, sans-serif;
+  color: #fff;
+  width: 200px; /* Set the width of the positioned div */
+  opacity: 0;
+}
+
+.image-upload-button:hover {
+  opacity: 0.3;
+}
+
+.image-upload-button:hover + .image-overlay-text {
+  opacity: 1;
+}
+
+.user-tag {
+  @extend .glass-effect;
+  background-color: none;
+  width: 600px;
+  height: 250px;
+  display: flex;
+  align-items: center;
+}
+
+.profile-img.large {
+  width: 200px;
+  height: 200px;
+  border: 1px solid var(--gray);
+  margin-left: 0px !important;
+}
+
 .flex-container-profile {
   padding: 0;
   margin: 0;
   list-style: none;
   display: flex;
+  overflow-x: auto;
 }
 
 .flex-item-profile {
   @extend .glass-effect;
+  @extend .horiz-center;
+  min-height: 200px;
+  min-width: 200px;
   width: 200px;
   height: 200px;
   margin: 10px;
-  @extend .horiz-center;
   display: flex;
-  flex-direction: column;
+  // flex-direction: column;s
   align-items: center; //
+  cursor: pointer;
+  // overflow-x: auto;
+}
+
+.flex-item-profile:hover {
+  opacity: 0.5;
+}
+
+.playlist-img {
+  @extend .centering;
+}
+
+.playlist-img.small {
+  width: 150px;
+  height: 150px;
+}
+
+.eyeOff {
+  height: 100px;
+  width: 100px;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -560,4 +622,15 @@ input[type="checkbox"] {
   width: 30px;
   height: 30px;
   cursor: pointer;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                    BREAK                                   */
+/* -------------------------------------------------------------------------- */
+
+br {
+  content: "";
+  margin: 10px;
+  display: block;
+  // font-size: 24%;
 }
