@@ -12,6 +12,15 @@ function Lobby() {
   const accessToken = useAuth();
   const user = getUser(accessToken);
 
+  const param_url = new URLSearchParams(window.location.search).get(
+    "Parameters"
+  );
+  if (param_url) {
+    console.log(JSON.parse(param_url));
+    // TODO: send to server
+    window.history.pushState({}, null, "/");
+  }
+
   /* -------------------------------------------------------------------------- */
   /*                                  FRONTEND                                  */
   /* -------------------------------------------------------------------------- */
@@ -24,27 +33,17 @@ function Lobby() {
       <div className="user-group">
         <img
           className="profile-img medium left immovable navbar-element visible"
-          src={user ? user.body.images.at(0).url : "/assets/images/error.png"}
+          src={user ? user.images.at(0).url : "/assets/images/error.png"}
           alt="spotify-logo"
         />
         <div className="username">
-          <h2>{user ? user.body.display_name : "N/A"}</h2>
+          <h2>{user ? user.display_name : "N/A"}</h2>
         </div>
       </div>
       <div className="user-group">
         <img
           className="profile-img medium left immovable navbar-element visible"
-          src="/assets/images/profile.jpg"
-          alt="spotify-logo"
-        />
-        <div className="username">
-          <h2>...</h2>
-        </div>
-      </div>
-      <div className="user-group">
-        <img
-          className="profile-img medium left immovable navbar-element visible"
-          src="/assets/images/profile.jpg"
+          src="/assets/images/error.png"
           alt="spotify-logo"
         />
         <div className="username">
@@ -54,7 +53,17 @@ function Lobby() {
       <div className="user-group">
         <img
           className="profile-img medium left immovable navbar-element visible"
-          src="/assets/images/profile.jpg"
+          src="/assets/images/error.png"
+          alt="spotify-logo"
+        />
+        <div className="username">
+          <h2>...</h2>
+        </div>
+      </div>
+      <div className="user-group">
+        <img
+          className="profile-img medium left immovable navbar-element visible"
+          src="/assets/images/error.png"
           alt="spotify-logo"
         />
         <div className="username">
