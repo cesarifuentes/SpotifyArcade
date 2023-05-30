@@ -24,7 +24,7 @@ export default function GetUser(accessToken) {
         console.log("error: caught in getUser");
         // window.location = "/";
       });
-  }, [accessToken]);
+  }, [accessToken, local_user]);
 
   return JSON.parse(localStorage.getItem("user"));
 }

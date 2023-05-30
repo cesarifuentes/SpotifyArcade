@@ -2,8 +2,14 @@ import { useEffect } from "react";
 import axios from "axios";
 
 export default function GetPlaylists(accessToken) {
+  let local_playlists = localStorage.getItem("playlists");
+
   useEffect(() => {
-    if (!accessToken) return; // won't work without username
+    // Check for valid parameter
+    if (!accessToken) return;
+    // Check if access token already requested
+    if (local_playlists) return;
+
     axios
       .post("http://localhost:8000/playlists", { accessToken })
       .then((response) => {
@@ -16,7 +22,7 @@ export default function GetPlaylists(accessToken) {
         // TODO: save in local storage the ids (and boolean if showing)
         // window.location = "/";
       });
-  }, [accessToken]);
+  }, [accessToken, local_playlists]);
 
   return JSON.parse(localStorage.getItem("playlists"));
 }

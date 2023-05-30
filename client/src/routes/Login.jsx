@@ -13,12 +13,9 @@ function Login() {
         {/* Logo */}
         <img
           className="logo-img immovable"
-          src="/assets/images/Spotify_Logo_RGB_Green.png"
+          src="/assets/images/gameroom-logo.png"
           alt="spotify-logo"
         />
-        <br />
-        <h3>GAME ROOM</h3>
-        <br />
         <br />
         {/* Login Button */}
         <Link to={loginUrl}>

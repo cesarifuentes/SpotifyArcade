@@ -38,6 +38,7 @@ This web app lets you compete with your friends to see who knows each others mus
 - [Using Spotify API with JavaScript](https://medium.com/@awoldt/using-spotify-api-with-javascript-9dd839407f12) (unused)
 - [Grainy Filter](https://webdesign.tutsplus.com/tutorials/better-web-images-with-svg-grainy-filters--cms-39739)
 - [Loading JSON Data Into Components](https://www.pluralsight.com/guides/load-and-render-json-data-into-react-components)
+- [Flex Container](https://medium.com/@lainakarosic/getting-started-with-css-flexbox-basics-58d875a574ce)
 
 ## Notes
 

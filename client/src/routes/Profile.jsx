@@ -13,31 +13,29 @@ function saveToProfile() {
   console.log("Saving to profile...");
   const image = document.getElementById("upload-image");
   console.log(image.src);
+  // const text = document.getElementById("upload-text");
+
   // elem.style.color = newColor;
-  const text = document.getElementById("upload-text");
   // elem.style.color = newColor;
 }
 
 // TODO: chance image src on upload
 
-function loadFile(event) {
-  console.log("Changing photo...");
-  // var image = document.getElementById("profile-img");
-  // console.log(image.src);
-  // image.src = URL.createObjectURL(event.target.files[0]);
-}
+// function loadFile(event) {
+// console.log("Changing photo...");
+// var image = document.getElementById("profile-img");
+// console.log(image.src);
+// image.src = URL.createObjectURL(event.target.files[0]);
+// }
 
 function Profile() {
   /* -------------------------------------------------------------------------- */
   /*                                   BACKEND                                  */
   /* -------------------------------------------------------------------------- */
 
-  // TODO: change any page that isnt home to use local storage
   const accessToken = useAuth();
   const user = getUser(accessToken);
   const playlists = getPlaylists(accessToken);
-  console.log(playlists);
-  console.log(displayPlaylists(playlists));
 
   /* -------------------------------------------------------------------------- */
   /*                                  FRONTEND                                  */
@@ -80,11 +78,7 @@ function Profile() {
             <img
               className="profile-img image-upload-button large left immovable
             visible"
-              src={
-                user
-                  ? localStorage.getItem("image")
-                  : "/assets/images/error.png"
-              }
+              src={user ? user.images.at(0).url : "/assets/images/error.png"}
               // TODO: user.images.at(0).url
               alt="spotify-logo"
               id="upload-image"

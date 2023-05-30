@@ -1,4 +1,5 @@
 export default function displayPlaylists(playlists) {
+  if (!playlists) return <li className="flex-item-profile">Loading</li>;
   return playlists.map((data, key) => {
     return (
       <li className="flex-item-profile" key={key}>

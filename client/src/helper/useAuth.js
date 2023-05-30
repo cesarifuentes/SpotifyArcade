@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import axios from "axios";
 
 export default function UseAuth() {
@@ -23,7 +23,7 @@ export default function UseAuth() {
         console.log("error: caught in useAuth");
         // window.location = "/";
       });
-  }, [code]);
+  }, [code, local_accessToken]);
 
   return localStorage.getItem("accessToken");
 }

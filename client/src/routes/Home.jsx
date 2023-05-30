@@ -28,6 +28,18 @@ function Home() {
   return (
     <div className="page">
       <ul className="flex-container-main horiz-center">
+        <li className="flex-item-main side">
+          {/* DESCRIPTION */}
+          <p style={{ textAlign: "center", width: "400px" }}>Coming soon...</p>
+          {/* END */}
+        </li>
+
+        <li className="flex-item-main side">
+          {/* DESCRIPTION */}
+          <p style={{ textAlign: "center", width: "400px" }}>Coming soon...</p>
+          {/* END */}
+        </li>
+
         <li className="flex-item-main">
           {/* LOGO */}
           <img
@@ -56,9 +68,20 @@ function Home() {
           </Link>
           {/* PLAYERS */}
           <div className="player-count bottom-right">
-            <IonIcon icon={people}></IonIcon>
+            <IonIcon icon={4 > 2 ? people : person}></IonIcon>
             <span>&nbsp;4</span>
           </div>
+          {/* END */}
+        </li>
+        <li className="flex-item-main side">
+          {/* DESCRIPTION */}
+          <p style={{ textAlign: "center", width: "400px" }}>Coming soon...</p>
+          {/* END */}
+        </li>
+
+        <li className="flex-item-main side">
+          {/* DESCRIPTION */}
+          <p style={{ textAlign: "center", width: "400px" }}>Coming soon...</p>
           {/* END */}
         </li>
       </ul>
