@@ -37,6 +37,14 @@ function Home() {
           link2="join/"
           players={4}
         ></Game>
+        {/* PIXEL TUNE */}
+        <Game
+          logo="/assets/images/error.png"
+          desc="Decipher blurry music artwork."
+          // link1="create/"
+          // link2="join/"
+          players={1}
+        ></Game>
       </ul>
 
       {/* NAVBAR */}
