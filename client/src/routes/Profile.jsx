@@ -1,7 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import useAuth from "../helper/useAuth";
-// import getUser from "../helper/getUser";
 import displayPlaylists from "../helper/displayPlaylists";
 
 import { useState, useEffect } from "react";

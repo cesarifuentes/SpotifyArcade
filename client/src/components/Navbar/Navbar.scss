@@ -1,0 +1,57 @@
+/* -------------------------------------------------------------------------- */
+/*                                   TOOLTIP                                  */
+/* -------------------------------------------------------------------------- */
+
+.dropbtn {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: var(--gray-2);
+  min-width: 160px;
+  overflow: auto; //
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  text-align: center;
+
+  top: 45px; // distance between button and dropdowb
+  right: 0px;
+  border-radius: 5px;
+  border: 6px solid var(--gray-2);
+}
+
+.navigator {
+  border: none;
+  padding: 10px 0px;
+  text-align: center;
+  cursor: pointer;
+  font-weight: bold;
+  color: white;
+  border-radius: 1px;
+  text-decoration: none;
+
+  // display: block;
+}
+
+.navigator:hover {
+  background-color: var(--gray-1);
+}
+
+.show {
+  display: block;
+}
+
+.top-separator {
+  border-top: 1px solid rgba(255, 255, 255, 0.236);
+}

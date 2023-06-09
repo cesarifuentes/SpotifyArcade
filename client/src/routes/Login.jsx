@@ -1,10 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { IonIcon } from "@ionic/react";
-import { informationCircle } from "ionicons/icons";
 
+// HELPER
 import { loginUrl } from "../helper/loginUrl";
 
+// COMPONTENTS
+import Button from "../components/Button/Button";
+
+// BACKEND
 import { useState, useEffect } from "react";
 import TokenHook from "../api/token";
 
@@ -20,6 +22,8 @@ function Login() {
     window.history.pushState({}, null, "/");
     // TODO: when left arrowed, the token stays in local storage
   }
+
+  // TODO: keep getting token error
 
   // Get token from Spotify
   const [token, fetchToken] = TokenHook();
@@ -43,21 +47,8 @@ function Login() {
         />
         <br />
         {/* Login Button */}
-        <Link to={loginUrl}>
-          <button className="button medium primary">
-            <p>LOG IN</p>
-          </button>
-          <br />
-          {/* <p>{JSON.stringify(data, null, 4)}</p> */}
-        </Link>
+        <Button to={loginUrl} text="LOG IN" class="medium primary" />
       </div>
-
-      {/* Help Button */}
-      <Link className="invisible" to={`/tutorial`}>
-        <button type="button">
-          <IonIcon className="info-icon" icon={informationCircle}></IonIcon>
-        </button>
-      </Link>
     </div>
   );
 }

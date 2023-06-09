@@ -4,9 +4,6 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import UserHook from "../api/user";
 
-import useAuth from "../helper/useAuth";
-// import getUser from "../helper/getUser";
-
 function Lobby() {
   /* -------------------------------------------------------------------------- */
   /*                                   BACKEND                                  */

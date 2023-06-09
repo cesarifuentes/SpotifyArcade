@@ -1,21 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import showDropdrown from "../helper/navDropdown";
 
-import { IonIcon } from "@ionic/react";
-import { person, people } from "ionicons/icons";
-import Button from "../components/Button";
+// COMPONTENTS
+import Navbar from "../components/Navbar/Navbar";
 
+// BACKEND
 import { useState, useEffect } from "react";
 import UserHook from "../api/user";
 
-// import fetchToken from "../components/fetchToken";
-
-function logout() {
-  console.log("button clicked");
-  window.localStorage.clear();
-  window.location = "/";
-}
+// OTHER
+import { IonIcon } from "@ionic/react";
+import { person, people } from "ionicons/icons";
+import Button from "../components/Button/Button";
 
 function Home() {
   /* -------------------------------------------------------------------------- */
@@ -32,31 +27,14 @@ function Home() {
   /*                                  FRONTEND                                  */
   /* -------------------------------------------------------------------------- */
 
-  // if (!accessToken) {
-  //   return (
-  //     <div className="page">
-  //       <Button></Button>
-  //       Loading...
-  //     </div>
-  //   );
-  // }
-
   return (
     <div className="page">
       {/* <p>{data}</p> */}
 
       <ul className="flex-container-main horiz-center">
-        <li className="flex-item-main side">
-          {/* DESCRIPTION */}
+        {/* <li className="flex-item-main side">
           <p style={{ textAlign: "center", width: "400px" }}>Coming soon...</p>
-          {/* END */}
-        </li>
-
-        <li className="flex-item-main side">
-          {/* DESCRIPTION */}
-          <p style={{ textAlign: "center", width: "400px" }}>Coming soon...</p>
-          {/* END */}
-        </li>
+        </li> */}
 
         <li className="flex-item-main">
           {/* LOGO */}
@@ -72,18 +50,9 @@ function Home() {
           </p>
           <br />
           {/* CREATE BUTTON */}
-          <Link to={`create/`}>
-            <button className="button small primary">
-              <p>CREATE PARTY</p>
-            </button>
-          </Link>
-          <br />
+          <Button to={`create/`} text="CREATE PARTY" class="small primary" />
           {/* JOIN BUTTON */}
-          <Link to={`join/`}>
-            <button className="button small secondary">
-              <p>JOIN PARTY</p>
-            </button>
-          </Link>
+          <Button to={`join/`} text="JOIN PARTY" class="small secondary" />
           {/* PLAYERS */}
           <div className="player-count bottom-right">
             <IonIcon icon={4 > 2 ? people : person}></IonIcon>
@@ -91,48 +60,10 @@ function Home() {
           </div>
           {/* END */}
         </li>
-        <li className="flex-item-main side">
-          {/* DESCRIPTION */}
-          <p style={{ textAlign: "center", width: "400px" }}>Coming soon...</p>
-          {/* END */}
-        </li>
-
-        <li className="flex-item-main side">
-          {/* DESCRIPTION */}
-          <p style={{ textAlign: "center", width: "400px" }}>Coming soon...</p>
-          {/* END */}
-        </li>
       </ul>
 
       {/* NAVBAR */}
-      <div className="navbar">
-        <div className="dropdown">
-          {/* IMAGE */}
-          <img
-            className="profile-img small dropbtn"
-            onClick={showDropdrown}
-            src={user ? user.images.at(0).url : "/assets/images/error.png"}
-            alt="user-img"
-          />
-          {/* MENU */}
-          <div id="myDropdown" className="dropdown-content">
-            <Link to={`profile/`}>
-              <div className="navigator">Settings</div>
-            </Link>
-            <Link
-              onClick={() => {
-                logout();
-              }}
-            >
-              <div className="navigator top-separator">
-                <p>Log Out</p>
-              </div>
-            </Link>
-            {/* TODO: move to database on login */}
-          </div>
-          {/* END */}
-        </div>
-      </div>
+      <Navbar user={user}></Navbar>
     </div>
   );
 }

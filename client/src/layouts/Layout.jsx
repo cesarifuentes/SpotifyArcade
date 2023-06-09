@@ -19,7 +19,7 @@ const Layout = () => {
   };
 
   return (
-    <div>
+    <div className="screen">
       <Outlet />
     </div>
     // {/* TODO: add navbar <Navbar /> */}

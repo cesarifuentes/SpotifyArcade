@@ -1,0 +1,58 @@
+/* -------------------------------------------------------------------------- */
+/*                                   BUTTON                                   */
+/* -------------------------------------------------------------------------- */
+
+.button {
+  border: none;
+  padding: 10px 50px;
+  text-align: center;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.button:hover {
+  //   @extend .basic-hover-effects;
+}
+
+// SIZES /////////////////////////////////////////
+
+.button.small {
+  // font-size: 15px;
+  border-radius: var(--button-radius);
+  padding: 10px 30px;
+}
+
+.button.medium {
+  // font-size: 25px;
+  border-radius: var(--button-radius);
+  // padding: 10px 30px;
+}
+
+.button.large {
+  // font-size: 50px;
+  padding: 20px 40px;
+  border-radius: var(--button-radius-large);
+}
+
+// COLORS /////////////////////////////////////////
+
+.button.primary {
+  background-color: var(--green);
+  color: white;
+}
+
+.button.secondary {
+  background-color: transparent;
+  border: 0.5px solid rgb(117, 117, 117);
+  color: white;
+}
+
+.button.white {
+  background-color: white;
+  color: black;
+}
+
+.button.gray {
+  background-color: var(--gray);
+  color: white;
+}
