@@ -6,40 +6,25 @@ import { informationCircle } from "ionicons/icons";
 import { loginUrl } from "../helper/loginUrl";
 
 import { useState, useEffect } from "react";
-import axios from "axios";
+import TokenHook from "../api/token";
 
 function Login() {
   /* -------------------------------------------------------------------------- */
   /*                                   BACKEND                                  */
   /* -------------------------------------------------------------------------- */
 
-  // Get code from url (after logged in)
+  // Get code from url (after authorized)
   const code_url = new URLSearchParams(window.location.search).get("code");
   if (code_url) {
-    // If success then store & cut the code string from the URL
     localStorage.setItem("code", code_url);
     window.history.pushState({}, null, "/");
     // TODO: when left arrowed, the token stays in local storage
   }
 
   // Get token from Spotify
-  const [token, setToken] = useState("");
+  const [token, fetchToken] = TokenHook();
   useEffect(() => {
-    const fetchData = async () => {
-      const code = localStorage.getItem("code");
-      try {
-        const response = await axios.post("http://localhost:8000/login", {
-          code,
-        });
-        setToken(response.data.token);
-        localStorage.setItem("accessToken", response.data.accessToken);
-        window.location.reload(false);
-      } catch (error) {
-        console.error("token error", error);
-      }
-    };
-
-    fetchData();
+    fetchToken();
   }, []);
 
   /* -------------------------------------------------------------------------- */

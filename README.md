@@ -40,6 +40,8 @@ This web app lets you compete with your friends to see who knows each others mus
 - [Loading JSON Data Into Components](https://www.pluralsight.com/guides/load-and-render-json-data-into-react-components)
 - [Flex Container](https://medium.com/@lainakarosic/getting-started-with-css-flexbox-basics-58d875a574ce)
 - [React Componentss](https://create-react-app.dev/docs/importing-a-component/)
+- [React Wait Axios to Render](https://codewithnico.com/react-wait-axios-to-render/)
+- [Custom Hooks](https://stackoverflow.com/questions/64314615/reactjs-methods-and-usestate-stuff-break-into-a-separate-file)
 
 ## Notes
 

@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import { useState, useEffect } from "react";
-import axios from "axios";
+import UserHook from "../api/user";
 
 import useAuth from "../helper/useAuth";
 // import getUser from "../helper/getUser";
@@ -12,21 +12,10 @@ function Lobby() {
   /*                                   BACKEND                                  */
   /* -------------------------------------------------------------------------- */
 
-  const accessToken = localStorage.getItem("accessToken");
-
   // Get user from Spotify
-  const [user, setUser] = useState("");
+  const [user, fetchUser] = UserHook();
   useEffect(() => {
-    axios
-      .post("http://localhost:8000/user", { accessToken })
-      .then((response) => {
-        console.log("GetUser RESPONDED");
-        setUser(response.data);
-        // localStorage.setItem("user", JSON.stringify(response.data));
-      })
-      .catch(() => {
-        console.log("error: caught in getUser");
-      });
+    fetchUser();
   }, []);
 
   const param_url = new URLSearchParams(window.location.search).get(

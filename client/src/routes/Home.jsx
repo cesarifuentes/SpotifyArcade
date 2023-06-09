@@ -7,7 +7,7 @@ import { person, people } from "ionicons/icons";
 import Button from "../components/Button";
 
 import { useState, useEffect } from "react";
-import axios from "axios";
+import UserHook from "../api/user";
 
 // import fetchToken from "../components/fetchToken";
 
@@ -22,21 +22,10 @@ function Home() {
   /*                                   BACKEND                                  */
   /* -------------------------------------------------------------------------- */
 
-  const accessToken = localStorage.getItem("accessToken");
-
   // Get user from Spotify
-  const [user, setUser] = useState("");
+  const [user, fetchUser] = UserHook();
   useEffect(() => {
-    axios
-      .post("http://localhost:8000/user", { accessToken })
-      .then((response) => {
-        console.log("GetUser RESPONDED");
-        setUser(response.data);
-        // localStorage.setItem("user", JSON.stringify(response.data));
-      })
-      .catch(() => {
-        console.log("error: caught in getUser");
-      });
+    fetchUser();
   }, []);
 
   /* -------------------------------------------------------------------------- */
