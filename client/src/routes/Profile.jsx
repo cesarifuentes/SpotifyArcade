@@ -1,9 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import useAuth from "../helper/useAuth";
-import getUser from "../helper/getUser";
+// import getUser from "../helper/getUser";
 import getPlaylists from "../helper/getPlaylists";
 import displayPlaylists from "../helper/displayPlaylists";
+
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 // import { IonIcon } from "@ionic/react";
 // import { eyeOff } from "ionoicons/icns";
@@ -33,9 +36,25 @@ function Profile() {
   /*                                   BACKEND                                  */
   /* -------------------------------------------------------------------------- */
 
-  const accessToken = useAuth();
-  const user = getUser(accessToken);
-  const playlists = getPlaylists(accessToken);
+  const accessToken = localStorage.getItem("accessToken");
+
+  // Get user from Spotify
+  const [user, setUser] = useState("");
+  useEffect(() => {
+    axios
+      .post("http://localhost:8000/user", { accessToken })
+      .then((response) => {
+        console.log("GetUser RESPONDED");
+        setUser(response.data);
+        // localStorage.setItem("user", JSON.stringify(response.data));
+      })
+      .catch(() => {
+        console.log("error: caught in getUser");
+      });
+  }, []);
+
+  // const playlists = getPlaylists(accessToken);
+  const playlists = null;
 
   /* -------------------------------------------------------------------------- */
   /*                                  FRONTEND                                  */

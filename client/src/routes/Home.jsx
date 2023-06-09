@@ -1,11 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import showDropdrown from "../helper/navDropdown";
-import useAuth from "../helper/useAuth";
-import getUser from "../helper/getUser";
 
 import { IonIcon } from "@ionic/react";
 import { person, people } from "ionicons/icons";
+import Button from "../components/Button";
+
+import { useState, useEffect } from "react";
+import axios from "axios";
+
+// import fetchToken from "../components/fetchToken";
 
 function logout() {
   console.log("button clicked");
@@ -18,15 +22,40 @@ function Home() {
   /*                                   BACKEND                                  */
   /* -------------------------------------------------------------------------- */
 
-  const accessToken = useAuth();
-  const user = getUser(accessToken);
+  const accessToken = localStorage.getItem("accessToken");
+
+  // Get user from Spotify
+  const [user, setUser] = useState("");
+  useEffect(() => {
+    axios
+      .post("http://localhost:8000/user", { accessToken })
+      .then((response) => {
+        console.log("GetUser RESPONDED");
+        setUser(response.data);
+        // localStorage.setItem("user", JSON.stringify(response.data));
+      })
+      .catch(() => {
+        console.log("error: caught in getUser");
+      });
+  }, []);
 
   /* -------------------------------------------------------------------------- */
   /*                                  FRONTEND                                  */
   /* -------------------------------------------------------------------------- */
 
+  // if (!accessToken) {
+  //   return (
+  //     <div className="page">
+  //       <Button></Button>
+  //       Loading...
+  //     </div>
+  //   );
+  // }
+
   return (
     <div className="page">
+      {/* <p>{data}</p> */}
+
       <ul className="flex-container-main horiz-center">
         <li className="flex-item-main side">
           {/* DESCRIPTION */}
