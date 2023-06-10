@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import UserHook from "../api/user";
 
 function Lobby() {
@@ -13,7 +13,7 @@ function Lobby() {
   const [user, fetchUser] = UserHook();
   useEffect(() => {
     fetchUser();
-  }, []);
+  }, [fetchUser]);
 
   const param_url = new URLSearchParams(window.location.search).get(
     "Parameters"

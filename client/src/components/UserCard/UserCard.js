@@ -2,11 +2,10 @@ import React, { Component } from "react";
 import "./UserCard.scss";
 
 // HELPER
-import { IonIcon } from "@ionic/react";
-import { person, people } from "ionicons/icons";
-import Button from "../../components/Button/Button";
-
-import { Link } from "react-router-dom";
+// import { IonIcon } from "@ionic/react";
+// import { person, people } from "ionicons/icons";
+// import Button from "../../components/Button/Button";
+// import { Link } from "react-router-dom";
 
 function click(n) {
   // turn off all user-group elements
@@ -30,7 +29,7 @@ class UserCard extends Component {
       >
         {/* position of icername v image matters for aligmnet */}
 
-        {this.props.align == "right" ? (
+        {this.props.align === "right" ? (
           <div className="username right">
             <h2>{this.props.user ? this.props.user.display_name : "N/A"}</h2>
           </div>
@@ -53,7 +52,7 @@ class UserCard extends Component {
           alt="spotify-logo"
         />
 
-        {this.props.align == "left" ? (
+        {this.props.align === "left" ? (
           <div className="username">
             <h2>{this.props.user ? this.props.user.display_name : "N/A"}</h2>
           </div>

@@ -4,11 +4,14 @@ const cors = require("cors"); // for cross-origin accessing in the browser
 require("dotenv").config(); // hold our credentials
 // const mongoose = require("mongoose"); // database
 const spotifyWebApi = require("spotify-web-api-node");
-
 const http = require("http");
+const WebSocket = require("ws");
+
+//initialize a simple http server
 const server = http.createServer(app);
-const { Server } = require("socket.io");
-const io = new Server(server);
+
+//initialize the WebSocket server instance
+const wss = new WebSocket.Server({ server });
 
 /* -------------------------------------------------------------------------- */
 /*                                  VARIABLES                                 */
@@ -40,6 +43,9 @@ app.get("/", (req, res) => {
 /* -------------------------------------------------------------------------- */
 /*                               SPOTIFY ROUTES                               */
 /* -------------------------------------------------------------------------- */
+
+// TODO: add version number 1
+// TODO: refresh token
 
 app.post("/login", (req, res) => {
   //  setup
@@ -109,11 +115,67 @@ app.post("/playlists", (req, res) => {
 });
 
 /* -------------------------------------------------------------------------- */
-/*                                  SOCKET.IO                                 */
+/*                                  WEBSOCKET                                 */
 /* -------------------------------------------------------------------------- */
 
-io.on("connection", (socket) => {
-  console.log("a user connected");
+function onSocketError(err) {
+  console.error(err);
+}
+
+// import { WebSocketServer } from "ws";
+
+// const wss = new WebSocketServer({ port: 8080 });
+
+let socketsConnected = new Set();
+
+wss.on("connection", function connection(ws, request, client) {
+  ws.on("error", console.error);
+
+  console.log(`A new client ${client} connected!`);
+  socketsConnected.add(client);
+  ws.send("Hello new client!");
+  ws.send("Client total: ", socketsConnected.size);
+
+  ws.on("close", function close() {
+    console.log(`Client ${client} disconnected!`);
+    socketsConnected.delete(socket.id);
+  });
+
+  // ws.on("message", function message(data) {
+  //   console.log("received: %s", data);
+  //   ws.send("We received your message: " + message);
+  // });
+
+  // ws.on("message", function message(data, isBinary) {
+  //   // acklowledge message
+  //   console.log("received: %s", data);
+  //   ws.send("We received your message: " + message);
+  //   // send message to all other clients
+  //   wss.clients.forEach(function each(client) {
+  //     if (client !== ws && client.readyState === WebSocket.OPEN) {
+  //       client.send(data, { binary: isBinary });
+  //     }
+  //   });
+  // });
+
+  // ws.send("something");
+});
+
+// upgrade an already established connection to a different protocol
+server.on("upgrade", function upgrade(request, socket, head) {
+  //   socket.on("error", onSocketError);
+  //   // This function is not defined on purpose. Implement it with your own logic.
+  //   authenticate(request, function next(err, client) {
+  //     if (err || !client) {
+  //       socket.write("HTTP/1.1 401 Unauthorized\r\n\r\n");
+  //       socket.destroy();
+  //       return;
+  //     }
+  //     socket.removeListener("error", onSocketError);
+  //     wss.handleUpgrade(request, socket, head, function done(ws) {
+  //       wss.emit("connection", ws, request, client);
+  //     });
+  //   });
 });
 
 /* -------------------------------------------------------------------------- */

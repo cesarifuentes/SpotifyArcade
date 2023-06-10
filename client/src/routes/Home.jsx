@@ -5,7 +5,7 @@ import Navbar from "../components/Navbar/Navbar";
 import Game from "../components/Game/Game";
 
 // BACKEND
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import UserHook from "../api/user";
 
 // OTHER
@@ -19,7 +19,11 @@ function Home() {
   const [user, fetchUser] = UserHook();
   useEffect(() => {
     fetchUser();
-  }, []);
+  }, [fetchUser]);
+
+  // const sendMessage = () => {
+  //   socket.send("Hello from client");
+  // };
 
   /* -------------------------------------------------------------------------- */
   /*                                  FRONTEND                                  */
@@ -27,6 +31,9 @@ function Home() {
 
   return (
     <div className="page">
+      {/* <img class="mini-logo" src="/assets/images/gameroom-logo.png" alt="" /> */}
+
+      {/* TODO: Add toggles to filter games */}
       <ul className="flex-container-main horiz-center">
         {/* MUSIC MATCH */}
         <Game
@@ -46,7 +53,6 @@ function Home() {
           players={1}
         ></Game>
       </ul>
-
       {/* NAVBAR */}
       <Navbar user={user}></Navbar>
     </div>

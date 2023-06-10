@@ -1,6 +1,22 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+function joinConnection() {
+  // Create WebSocket connection.
+  const socket = new WebSocket("ws://localhost:8000");
+
+  // Connection opened
+  socket.addEventListener("open", (event) => {
+    console.log("Connected to WS server");
+    socket.send("Hello Server!");
+  });
+
+  // Listen for messages
+  socket.addEventListener("message", (event) => {
+    console.log("Message from server ", event.data);
+  });
+}
+
 function Join() {
   var forceInputUppercase = function (e) {
     let el = e.target;
@@ -35,7 +51,10 @@ function Join() {
         <Link to={`lobby/`}>
           {/* TODO: make into submit button */}
           {/* TODO: make button white until filled */}
-          <button className="button large bottom-left primary">
+          <button
+            className="button large bottom-left primary"
+            onClick={joinConnection}
+          >
             <h3>JOIN</h3>
           </button>
         </Link>

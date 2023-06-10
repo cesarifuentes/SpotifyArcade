@@ -7,7 +7,7 @@ import { loginUrl } from "../helper/loginUrl";
 import Button from "../components/Button/Button";
 
 // BACKEND
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import TokenHook from "../api/token";
 
 function Login() {
@@ -29,7 +29,8 @@ function Login() {
   const [token, fetchToken] = TokenHook();
   useEffect(() => {
     fetchToken();
-  }, []);
+  }, [fetchToken]);
+  console.log("token: ", token);
 
   /* -------------------------------------------------------------------------- */
   /*                                  FRONTEND                                  */

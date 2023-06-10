@@ -42,6 +42,10 @@ This web app lets you compete with your friends to see who knows each others mus
 - [React Componentss](https://create-react-app.dev/docs/importing-a-component/)
 - [React Wait Axios to Render](https://codewithnico.com/react-wait-axios-to-render/)
 - [Custom Hooks](https://stackoverflow.com/questions/64314615/reactjs-methods-and-usestate-stuff-break-into-a-separate-file)
+- [Multiple ReactJS Apps](https://www.youtube.com/watch?v=aHHZfIl2P3U)
+- [Web Socket - Frontend](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket)
+- [Web Socket - Backend](https://www.npmjs.com/package/ws)
+- [WebSockets with NodeJS (Express) and WebSocket API](https://www.youtube.com/watch?v=wV-fDdHhGqs)
 
 ## Notes
 

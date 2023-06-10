@@ -6,8 +6,6 @@ import { IonIcon } from "@ionic/react";
 import { person, people } from "ionicons/icons";
 import Button from "../../components/Button/Button";
 
-import { Link } from "react-router-dom";
-
 class Game extends Component {
   render() {
     // ...

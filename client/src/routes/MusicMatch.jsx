@@ -7,17 +7,23 @@ import React from "react";
 import UserCard from "../components/UserCard/UserCard";
 
 // BACKEND
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import UserHook from "../api/user";
 
 function MusicMatch() {
+  /* -------------------------------------------------------------------------- */
+  /*                                   BACKEND                                  */
+  /* -------------------------------------------------------------------------- */
+
   // Get user from Spotify
   const [user, fetchUser] = UserHook();
   useEffect(() => {
     fetchUser();
-  }, []);
+  }, [fetchUser]);
 
-  console.log(user);
+  /* -------------------------------------------------------------------------- */
+  /*                                  FRONTEND                                  */
+  /* -------------------------------------------------------------------------- */
 
   return (
     <div className="page">

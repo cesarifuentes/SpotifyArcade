@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import displayPlaylists from "../helper/displayPlaylists";
 
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import UserHook from "../api/user";
 import PlaylistHook from "../api/playlist";
 
@@ -38,13 +38,13 @@ function Profile() {
   const [user, fetchUser] = UserHook();
   useEffect(() => {
     fetchUser();
-  }, []);
+  }, [fetchUser]);
 
   // Get playlists from Spotify
   const [playlists, fetchPlaylists] = PlaylistHook();
   useEffect(() => {
     fetchPlaylists();
-  }, []);
+  }, [fetchPlaylists]);
 
   /* -------------------------------------------------------------------------- */
   /*                                  FRONTEND                                  */
