@@ -1,27 +1,34 @@
-# Music Match
+# Spotify Arcade
+
+![Static Badge](https://img.shields.io/badge/version-1.0-blue)
+![Static Badge](https://img.shields.io/badge/build-failing-red)
+![Static Badge](https://img.shields.io/badge/repo_status-inactive-red)
+[![General badge](https://img.shields.io/badge/-ReactJS-61DAFB?logo=react&logoColor=white&logoWidth=30.svg)]()
+[![General badge](https://img.shields.io/badge/-ExpressJS-000000?logo=express&logoColor=white&logoWidth=30.svg)]()
+[![General badge](https://img.shields.io/badge/-NodeJS-339933?logo=node.js&logoColor=white&logoWidth=30.svg)]()
 
 This web app lets you compete with your friends to see who knows each others music taste the best!
 
-## Requirements
+## Installation & Usage
 
-- NodeJS v18.16.0
+Running the Server
+```
+cd server
+npm run dev
+```
 
-## How To Use
+Running the Client
+```
+cd client
+npm install
+npm start
+```
 
-1. Running the Server
+## Contributing
 
-   - `cd server`
-   - `npm run dev`
+As of right now, I am not accepting pull requests. I intend on changing this and welcoming pull requests in the near future.
 
-2. Running the Client
-
-   - `cd client`
-   - `npm install`
-   - `npm start`
-
-3. [Launch the Client Local Browser](http://localhost:3000/)
-
-## Resources
+## Acknowledgments
 
 - [Create a React App with a Node Backend](https://www.freecodecamp.org/news/how-to-create-a-react-app-with-a-node-backend-the-complete-guide/)
 - [Connect React with Node.js](https://codedamn.com/news/reactjs/how-to-connect-react-with-node-js)
@@ -46,6 +53,11 @@ This web app lets you compete with your friends to see who knows each others mus
 - [Web Socket - Frontend](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket)
 - [Web Socket - Backend](https://www.npmjs.com/package/ws)
 - [WebSockets with NodeJS (Express) and WebSocket API](https://www.youtube.com/watch?v=wV-fDdHhGqs)
+
+## Roadmap
+
+- [ ] ...
+
 
 ## Notes
 
