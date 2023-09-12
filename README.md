@@ -1,34 +1,45 @@
-# Spotify Arcade
+<h1 align="center">
+  🎶 <br> Spotify Arcade
+</h1>
 
-![Static Badge](https://img.shields.io/badge/version-1.0-blue)
-![Static Badge](https://img.shields.io/badge/build-failing-red)
-![Static Badge](https://img.shields.io/badge/repo_status-inactive-red)
-[![General badge](https://img.shields.io/badge/-ReactJS-61DAFB?logo=react&logoColor=white&logoWidth=30.svg)]()
-[![General badge](https://img.shields.io/badge/-ExpressJS-000000?logo=express&logoColor=white&logoWidth=30.svg)]()
-[![General badge](https://img.shields.io/badge/-NodeJS-339933?logo=node.js&logoColor=white&logoWidth=30.svg)]()
+<p align="center">
+  This web app lets you compete with your friends to see who knows each others music taste the best!
+</p>
 
-This web app lets you compete with your friends to see who knows each others music taste the best!
+<p align="center">
+  <a href="">
+    <img alt="Version" src="https://img.shields.io/badge/version-0.1.0-brightgreen" />
+  </a>
+    <a href="">
+    <img alt="Version" src="https://img.shields.io/badge/build-failing-red" />
+  </a>
+    <a href="">
+    <img alt="Version" src="https://img.shields.io/badge/repo_status-inactive-red" />
+  </a>
 
-## Installation & Usage
+</p>
 
-Running the Server
-```
-cd server
-npm run dev
-```
 
-Running the Client
-```
-cd client
-npm install
-npm start
-```
+## 🛠️ Installation & Start Up
 
-## Contributing
+1. Running the Server
+  ```
+  cd server
+  npm run dev
+  ```
+
+2. Running the Client
+  ```
+  cd client
+  npm install
+  npm start
+  ```
+
+## 🫱‍🫲 Contributing
 
 As of right now, I am not accepting pull requests. I intend on changing this and welcoming pull requests in the near future.
 
-## Acknowledgments
+## 🗣️ Acknowledgments
 
 - [Create a React App with a Node Backend](https://www.freecodecamp.org/news/how-to-create-a-react-app-with-a-node-backend-the-complete-guide/)
 - [Connect React with Node.js](https://codedamn.com/news/reactjs/how-to-connect-react-with-node-js)
@@ -54,12 +65,12 @@ As of right now, I am not accepting pull requests. I intend on changing this and
 - [Web Socket - Backend](https://www.npmjs.com/package/ws)
 - [WebSockets with NodeJS (Express) and WebSocket API](https://www.youtube.com/watch?v=wV-fDdHhGqs)
 
-## Roadmap
+## ✅ Roadmap
 
 - [ ] ...
 
 
-## Notes
+## 🪲 Known Problems
 
 - add voicechat that lowers others audio while music is playing
 - but in React and ReactNative there is no HTML, we use JSX(Javascript XML) here we use
